@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cqow47bch5ocs"]
+
+[ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://garnet.tscn" id="1_ig7tw"]
+
+[node name="Main" type="Node2D" unique_id=819097780]
+
+[node name="Garnet" parent="." unique_id=323405628 instance=ExtResource("1_ig7tw")]
+position = Vector2(654, 180)
