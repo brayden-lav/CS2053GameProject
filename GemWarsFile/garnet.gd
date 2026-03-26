@@ -1,4 +1,4 @@
-extends Area2D
+extends CharacterBody2D
 @export var speed = 60
 var target_velocity = Vector2.ZERO
 var screen_size
@@ -24,3 +24,5 @@ func _process(delta):
 	$AnimatedSprite2D.play()
 	target_velocity.x = dir.x * speed
 	target_velocity.y = dir.y * speed
+	move_and_slide()
+	

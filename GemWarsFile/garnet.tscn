@@ -148,9 +148,9 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uypp3"]
-size = Vector2(21, 32)
+size = Vector2(21, 25)
 
-[node name="Garnet" type="Area2D" unique_id=323405628]
+[node name="Garnet" type="CharacterBody2D" unique_id=1088071115]
 script = ExtResource("1_vnmho")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1092917711]
@@ -158,4 +158,5 @@ sprite_frames = SubResource("SpriteFrames_hrvbo")
 animation = &"RightWalk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758312242]
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_uypp3")
