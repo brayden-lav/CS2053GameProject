@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cy8cqihou5e2o" path="res://Map.png" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://garnet.tscn" id="2_hbghi"]
+[ext_resource type="PackedScene" uid="uid://y7pql4vay6hx" path="res://ruby.tscn" id="3_hn12h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hbghi"]
 texture = ExtResource("1_3hls8")
@@ -68,3 +69,6 @@ tile_set = SubResource("TileSet_hn12h")
 
 [node name="Garnet" parent="." unique_id=323405628 instance=ExtResource("2_hbghi")]
 position = Vector2(1139, 335)
+
+[node name="Ruby" parent="." unique_id=922949844 instance=ExtResource("3_hn12h")]
+position = Vector2(829, 390)

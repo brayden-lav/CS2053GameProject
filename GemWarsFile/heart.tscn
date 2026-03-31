@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://bwg2o40q6c5wa"]
+
+[ext_resource type="Texture2D" uid="uid://b73p8spvbpidm" path="res://Hearts/Heart_set-4.png" id="1_lk003"]
+[ext_resource type="Texture2D" uid="uid://c2p6lu2m2yssg" path="res://Hearts/Heart_set-5.png" id="2_123q1"]
+[ext_resource type="Texture2D" uid="uid://lgvoxb7qr0b5" path="res://Hearts/Heart_set-6.png" id="3_qq1kb"]
+[ext_resource type="Texture2D" uid="uid://2vpa8k56t2ev" path="res://Hearts/Heart_set-2.png" id="4_u16nx"]
+[ext_resource type="Texture2D" uid="uid://dn5c4e2b51fk3" path="res://Hearts/Heart_set-3.png" id="5_ltlpt"]
+[ext_resource type="Texture2D" uid="uid://jpbx44erfl8" path="res://Hearts/Heart_set-1.png" id="6_n3gup"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1hqw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_lk003")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_123q1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qq1kb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_123q1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_lk003")
+}],
+"loop": true,
+"name": &"dead Heart",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_u16nx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ltlpt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u16nx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n3gup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_n3gup")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xsxu"]
+
+[node name="Heart" type="Area2D" unique_id=241233361]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1088394104]
+sprite_frames = SubResource("SpriteFrames_c1hqw")
+animation = &"dead Heart"
+frame_progress = 0.99046594
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108336674]
+visible = false
+shape = SubResource("RectangleShape2D_2xsxu")

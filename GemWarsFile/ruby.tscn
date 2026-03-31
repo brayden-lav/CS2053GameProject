@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://y7pql4vay6hx"]
+
+[ext_resource type="Texture2D" uid="uid://bg6duvx1xce75" path="res://Ruby/Ruby_Back_Walk-1.png" id="1_7ftfg"]
+[ext_resource type="Texture2D" uid="uid://dj04iepcji8l8" path="res://Ruby/Ruby_Back_Walk-2.png" id="2_cj70g"]
+[ext_resource type="Texture2D" uid="uid://cmwme66aknjx3" path="res://Ruby/Ruby_Back_Walk-3.png" id="3_icmu5"]
+[ext_resource type="Texture2D" uid="uid://br5cn3vtgetj2" path="res://Ruby/Ruby_Back_Walk-4.png" id="4_6xy3t"]
+[ext_resource type="Texture2D" uid="uid://ckvbox0ik5pqj" path="res://Ruby/Ruby_Front_Walk-1.png" id="5_1on4w"]
+[ext_resource type="Texture2D" uid="uid://blhhdwrdjwfwl" path="res://Ruby/Ruby_Front_Walk-2.png" id="6_v3qpr"]
+[ext_resource type="Texture2D" uid="uid://cirn4bqd0epqy" path="res://Ruby/Ruby_Front_Walk-3.png" id="7_ndrvj"]
+[ext_resource type="Texture2D" uid="uid://b7h7oqeo06s2k" path="res://Ruby/Ruby_Front_Walk-4.png" id="8_5el8o"]
+[ext_resource type="Texture2D" uid="uid://g1isf2ix1xfu" path="res://Ruby/RubywalkLR-1.png" id="9_jiued"]
+[ext_resource type="Texture2D" uid="uid://dytug08uivhn3" path="res://Ruby/RubywalkLR-2.png" id="10_pg4hx"]
+[ext_resource type="Texture2D" uid="uid://ll0b6j6ym7bn" path="res://Ruby/RubywalkLR-3.png" id="11_r82dc"]
+[ext_resource type="Texture2D" uid="uid://djck8yya8o0we" path="res://Ruby/RubywalkLR-5.png" id="12_fhu2j"]
+[ext_resource type="Texture2D" uid="uid://6rybyxhl2fv7" path="res://Ruby/RubywalkLR-4.png" id="13_6fxs4"]
+[ext_resource type="Texture2D" uid="uid://coqkdjye0pjnk" path="res://Ruby/RubywalkLR-7.png" id="14_5hihg"]
+[ext_resource type="Texture2D" uid="uid://twesb3natejr" path="res://Ruby/RubywalkLR-6.png" id="15_31qaq"]
+[ext_resource type="Texture2D" uid="uid://bdki63bl18kdm" path="res://Ruby/RubywalkLR-9.png" id="16_4185i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bucnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7ftfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cj70g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_icmu5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6xy3t")
+}],
+"loop": true,
+"name": &"BackWalk",
+"speed": 4.2
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1on4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v3qpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ndrvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_5el8o")
+}],
+"loop": true,
+"name": &"FrontWalk",
+"speed": 4.2
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ndrvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_1on4w")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.3,
+"texture": ExtResource("9_jiued")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_pg4hx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_r82dc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_fhu2j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_6fxs4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5hihg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_31qaq")
+}, {
+"duration": 1.2,
+"texture": ExtResource("16_4185i")
+}],
+"loop": true,
+"name": &"LeftWalk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gysw1"]
+
+[node name="Ruby" type="CharacterBody2D" unique_id=922949844]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1788691412]
+sprite_frames = SubResource("SpriteFrames_bucnf")
+animation = &"BackWalk"
+frame_progress = 0.3092441
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066748681]
+visible = false
+shape = SubResource("RectangleShape2D_gysw1")
