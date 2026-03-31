@@ -56,8 +56,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1088394104]
 sprite_frames = SubResource("SpriteFrames_c1hqw")
-animation = &"dead Heart"
-frame_progress = 0.99046594
+frame_progress = 0.85696584
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108336674]
 visible = false
