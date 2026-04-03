@@ -165,7 +165,7 @@ fill_to = Vector2(0, 0.5470588)
 script = ExtResource("1_vnmho")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=71274961]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1092917711]
 sprite_frames = SubResource("SpriteFrames_hrvbo")
