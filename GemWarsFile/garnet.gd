@@ -25,4 +25,4 @@ func _process(delta):
 	target_velocity.x = dir.x * speed
 	target_velocity.y = dir.y * speed
 	move_and_slide()
-	
+	$PointLight2D.energy = randf_range(0.8, 1.0)

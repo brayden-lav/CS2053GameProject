@@ -150,8 +150,22 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uypp3"]
 size = Vector2(21, 25)
 
+[sub_resource type="Gradient" id="Gradient_cseo8"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vnmho"]
+gradient = SubResource("Gradient_cseo8")
+width = 256
+height = 256
+fill = 1
+fill_from = Vector2(0.5117647, 0.5117647)
+fill_to = Vector2(0, 0.5470588)
+
 [node name="Garnet" type="CharacterBody2D" unique_id=1088071115]
 script = ExtResource("1_vnmho")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=71274961]
+zoom = Vector2(3, 3)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1092917711]
 sprite_frames = SubResource("SpriteFrames_hrvbo")
@@ -160,3 +174,9 @@ animation = &"RightWalk"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758312242]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_uypp3")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=412590183]
+z_index = 1
+color = Color(1, 0.6784314, 0.19607843, 1)
+texture = SubResource("GradientTexture2D_vnmho")
+height = 1024.0
