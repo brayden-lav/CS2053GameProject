@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://nuy66oi64afu"]
 
-[ext_resource type="Texture2D" uid="uid://cy8cqihou5e2o" path="res://Map.png" id="1_3hls8"]
+[ext_resource type="Texture2D" uid="uid://crnw0bhsdmo3m" path="res://Map.png" id="1_3hls8"]
 [ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://garnet.tscn" id="2_hbghi"]
 [ext_resource type="PackedScene" uid="uid://y7pql4vay6hx" path="res://ruby.tscn" id="3_hn12h"]
 
