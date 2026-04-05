@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cdgfdg3vf7guh"]
+
+[ext_resource type="Texture2D" uid="uid://4aobaknimhvb" path="res://Cards/Card4.png" id="1_tb05o"]
+[ext_resource type="FontFile" uid="uid://cg6l6rtn0vk1q" path="res://Ithaca-LVB75.ttf" id="2_tb05o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb05o"]
+size = Vector2(102, 128)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uop0m"]
+line_spacing = 4.0
+font = ExtResource("2_tb05o")
+font_size = 18
+font_color = Color(1, 0.79607844, 0, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Card4" type="Area2D" unique_id=739482132]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=595579275]
+scale = Vector2(4, 4)
+texture = ExtResource("1_tb05o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1778171263]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_tb05o")
+
+[node name="Label" type="Label" parent="." unique_id=1008938110]
+offset_left = -35.0
+offset_top = -55.0
+offset_right = 45.0
+offset_bottom = 51.0
+text = "   Lightning
+
+ Enemy Takes
+ 2 Damage
+End Turn"
+label_settings = SubResource("LabelSettings_uop0m")

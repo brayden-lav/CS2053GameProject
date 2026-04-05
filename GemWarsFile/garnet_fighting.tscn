@@ -14,10 +14,10 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_ws2ws")
 }, {
-"duration": 1.0,
+"duration": 2.5,
 "texture": ExtResource("3_5v5w6")
 }, {
-"duration": 1.0,
+"duration": 4.0,
 "texture": ExtResource("4_avsvh")
 }],
 "loop": true,
@@ -26,11 +26,15 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7gas"]
+size = Vector2(24, 34)
 
 [node name="GarnetFighting" type="CharacterBody2D" unique_id=1214929908]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1911639768]
 sprite_frames = SubResource("SpriteFrames_ctl3m")
+frame_progress = 0.09091723
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081740835]
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_j7gas")

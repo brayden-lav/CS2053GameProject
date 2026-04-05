@@ -26,6 +26,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6r8vk"]
+size = Vector2(25, 31)
 
 [node name="RubyFighting" type="CharacterBody2D" unique_id=130922864]
 
@@ -33,4 +34,5 @@ animations = [{
 sprite_frames = SubResource("SpriteFrames_njau4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=48278947]
+position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_6r8vk")

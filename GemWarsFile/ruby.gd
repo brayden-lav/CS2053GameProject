@@ -1,5 +1,5 @@
 extends CharacterBody2D
- 
+@export var ruby_id: String = ""
 @export var speed := 30
 @export var next_scene: String = "res://fighting_ruby_1.tscn"
  
@@ -57,4 +57,14 @@ func _on_idle_timer_timeout() -> void:
 
 func _on_transfer_area_body_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		get_tree().change_scene_to_file(next_scene)
+		# Save previous scene path
+		GameManager.previous_scene_path = get_tree().current_scene.scene_file_path
+		
+		# Save Ruby ID
+		GameManager.current_ruby_id = ruby_id
+		
+		# Save player position
+		GameManager.previous_player_position = body.global_position
+		
+		# Go to battle
+		get_tree().change_scene_to_file("res://Fighting_Ruby_1.tscn")
