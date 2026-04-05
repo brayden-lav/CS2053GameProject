@@ -1,7 +1,7 @@
 extends CharacterBody2D
  
 @export var speed := 30
-@export var next_scene: String = "res://fightning_ruby_1.tscn"
+@export var next_scene: String = "res://fighting_ruby_1.tscn"
  
 var direction := -1
 var target: CharacterBody2D = null
@@ -30,7 +30,7 @@ func patrol():
 	if is_on_wall():
 		direction *= -1
  
-		update_animation()
+	update_animation()
  
 func idle():
 	velocity = Vector2.ZERO
@@ -54,8 +54,7 @@ func _on_idle_timer_timeout() -> void:
  
 	state = "patrol"
 	idle_timer.start()
- 
- 
-func _on_transfer_area_body_entered(body: Node2D) -> void:
+
+func _on_transfer_area_body_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		get_tree().change_scene_to_file(next_scene)

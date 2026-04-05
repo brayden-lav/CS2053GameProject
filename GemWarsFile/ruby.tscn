@@ -117,24 +117,28 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gysw1"]
+size = Vector2(26, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v3qpr"]
+size = Vector2(32, 39)
 
 [node name="Ruby" type="CharacterBody2D" unique_id=922949844]
 script = ExtResource("1_cj70g")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1788691412]
+[node name="frames" type="AnimatedSprite2D" parent="." unique_id=1788691412]
 sprite_frames = SubResource("SpriteFrames_bucnf")
 animation = &"RubyFighting"
 frame_progress = 0.56280947
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066748681]
-visible = false
 shape = SubResource("RectangleShape2D_gysw1")
 
-[node name="Timer" type="Timer" parent="." unique_id=663280132]
+[node name="IdleTimer" type="Timer" parent="." unique_id=663280132]
 
-[node name="Area2D" type="Area2D" parent="." unique_id=487914297]
+[node name="TransferAreaBody" type="Area2D" parent="." unique_id=487914297]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=26395000]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransferAreaBody" unique_id=26395000]
 shape = SubResource("RectangleShape2D_v3qpr")
+
+[connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="body_entered" from="TransferAreaBody" to="." method="_on_transfer_area_body_body_entered"]

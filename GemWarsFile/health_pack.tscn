@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://v050p3v5kwn3"]
 
+[ext_resource type="Script" uid="uid://dm60xqui5ep88" path="res://health_pack.gd" id="1_oxhgo"]
 [ext_resource type="Texture2D" uid="uid://dvjhgrp67claw" path="res://Health/Health_Pack-3.png" id="1_p8vk6"]
 [ext_resource type="Texture2D" uid="uid://da64vp6njtcgl" path="res://Health/Health_Pack-1.png" id="2_oxhgo"]
 [ext_resource type="Texture2D" uid="uid://b7tcclvsy35bk" path="res://Health/Health_Pack-2.png" id="3_m1ub2"]
@@ -26,17 +27,22 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 4.2
+"speed": 4.8
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xsxu"]
+size = Vector2(16.5, 18.5)
 
 [node name="HealthPack" type="Area2D" unique_id=241233361]
+scale = Vector2(2, 2)
+script = ExtResource("1_oxhgo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1088394104]
+position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_flker")
-frame_progress = 0.9702974
+autoplay = "default"
+frame_progress = 0.7403111
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108336674]
-visible = false
+position = Vector2(-0.25, -1.75)
 shape = SubResource("RectangleShape2D_2xsxu")

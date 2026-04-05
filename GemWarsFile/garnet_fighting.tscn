@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://dpj3gh56jv4ck"]
+
+[ext_resource type="Texture2D" uid="uid://cgthgdndacda8" path="res://Garnet/Garnet Fighting/GarnetFight-1.png" id="1_acpoi"]
+[ext_resource type="Texture2D" uid="uid://clxh0rjkn2wgh" path="res://Garnet/Garnet Fighting/GarnetFight-2.png" id="2_ws2ws"]
+[ext_resource type="Texture2D" uid="uid://ckbt8o5rnuque" path="res://Garnet/Garnet Fighting/GarnetFight-3.png" id="3_5v5w6"]
+[ext_resource type="Texture2D" uid="uid://2gc8eh8mbqfm" path="res://Garnet/Garnet Fighting/GarnetFight-4.png" id="4_avsvh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ctl3m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_acpoi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ws2ws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5v5w6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_avsvh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7gas"]
+
+[node name="GarnetFighting" type="CharacterBody2D" unique_id=1214929908]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1911639768]
+sprite_frames = SubResource("SpriteFrames_ctl3m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081740835]
+shape = SubResource("RectangleShape2D_j7gas")
