@@ -5,4 +5,4 @@
 [node name="Main" type="Node2D" unique_id=819097780]
 
 [node name="Garnet" parent="." unique_id=323405628 instance=ExtResource("1_ig7tw")]
-position = Vector2(654, 180)
+position = Vector2(589, 273)

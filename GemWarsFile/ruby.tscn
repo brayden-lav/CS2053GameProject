@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://y7pql4vay6hx"]
 
 [ext_resource type="Texture2D" uid="uid://bg6duvx1xce75" path="res://Ruby/Ruby_Back_Walk-1.png" id="1_7ftfg"]
+[ext_resource type="Script" uid="uid://dy2dm4lwg1olb" path="res://ruby.gd" id="1_cj70g"]
 [ext_resource type="Texture2D" uid="uid://dj04iepcji8l8" path="res://Ruby/Ruby_Back_Walk-2.png" id="2_cj70g"]
 [ext_resource type="Texture2D" uid="uid://cmwme66aknjx3" path="res://Ruby/Ruby_Back_Walk-3.png" id="3_icmu5"]
 [ext_resource type="Texture2D" uid="uid://br5cn3vtgetj2" path="res://Ruby/Ruby_Back_Walk-4.png" id="4_6xy3t"]
@@ -16,6 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://coqkdjye0pjnk" path="res://Ruby/RubywalkLR-7.png" id="14_5hihg"]
 [ext_resource type="Texture2D" uid="uid://twesb3natejr" path="res://Ruby/RubywalkLR-6.png" id="15_31qaq"]
 [ext_resource type="Texture2D" uid="uid://bdki63bl18kdm" path="res://Ruby/RubywalkLR-9.png" id="16_4185i"]
+[ext_resource type="Texture2D" uid="uid://d16fbhh84osc2" path="res://Ruby/Ruby_fighting-1.png" id="18_v3qpr"]
+[ext_resource type="Texture2D" uid="uid://bg4l02mvl5sm8" path="res://Ruby/Ruby_fighting-2.png" id="19_ndrvj"]
+[ext_resource type="Texture2D" uid="uid://bx1lkp2o71b6o" path="res://Ruby/Ruby_fighting-3.png" id="20_5el8o"]
+[ext_resource type="Texture2D" uid="uid://i2u7pnb4uw5y" path="res://Ruby/Ruby_fighting-4.png" id="21_jiued"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bucnf"]
 animations = [{
@@ -92,17 +97,44 @@ animations = [{
 "loop": true,
 "name": &"LeftWalk",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_v3qpr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ndrvj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_5el8o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_jiued")
+}],
+"loop": true,
+"name": &"RubyFighting",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gysw1"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3qpr"]
+
 [node name="Ruby" type="CharacterBody2D" unique_id=922949844]
+script = ExtResource("1_cj70g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1788691412]
 sprite_frames = SubResource("SpriteFrames_bucnf")
-animation = &"BackWalk"
-frame_progress = 0.3092441
+animation = &"RubyFighting"
+frame_progress = 0.56280947
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1066748681]
 visible = false
 shape = SubResource("RectangleShape2D_gysw1")
+
+[node name="Timer" type="Timer" parent="." unique_id=663280132]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=487914297]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=26395000]
+shape = SubResource("RectangleShape2D_v3qpr")

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bf0t6x26mlf15"]
+
+[ext_resource type="Texture2D" uid="uid://3fe3sofllhr5" path="res://Shield/Shield-1.png" id="1_0vxx4"]
+[ext_resource type="Texture2D" uid="uid://b4ol4k47l4tsq" path="res://Shield/Shield-2.png" id="2_4re53"]
+[ext_resource type="Texture2D" uid="uid://b3uc08n2a6w7w" path="res://Shield/Shield-3.png" id="3_tgr6k"]
+[ext_resource type="Texture2D" uid="uid://bioow0gbsqhaw" path="res://Shield/Shield-4.png" id="4_xc41h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_41k7r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0vxx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4re53")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tgr6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xc41h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xsxu"]
+
+[node name="Shield" type="Area2D" unique_id=241233361]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1088394104]
+sprite_frames = SubResource("SpriteFrames_41k7r")
+frame_progress = 0.3649831
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108336674]
+visible = false
+shape = SubResource("RectangleShape2D_2xsxu")

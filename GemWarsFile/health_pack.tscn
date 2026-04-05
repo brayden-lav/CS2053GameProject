@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://v050p3v5kwn3"]
+
+[ext_resource type="Texture2D" uid="uid://dvjhgrp67claw" path="res://Health/Health_Pack-3.png" id="1_p8vk6"]
+[ext_resource type="Texture2D" uid="uid://da64vp6njtcgl" path="res://Health/Health_Pack-1.png" id="2_oxhgo"]
+[ext_resource type="Texture2D" uid="uid://b7tcclvsy35bk" path="res://Health/Health_Pack-2.png" id="3_m1ub2"]
+[ext_resource type="Texture2D" uid="uid://dareyvbs83xlb" path="res://Health/Health_Pack-4.png" id="4_xf5no"]
+[ext_resource type="Texture2D" uid="uid://bumfb6hn266p2" path="res://Health/Health_Pack-5.png" id="5_ab6tx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_flker"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p8vk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_oxhgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_m1ub2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_xf5no")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ab6tx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.2
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xsxu"]
+
+[node name="HealthPack" type="Area2D" unique_id=241233361]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1088394104]
+sprite_frames = SubResource("SpriteFrames_flker")
+frame_progress = 0.9702974
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=108336674]
+visible = false
+shape = SubResource("RectangleShape2D_2xsxu")
