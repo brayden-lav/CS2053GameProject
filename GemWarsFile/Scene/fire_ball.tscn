@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://kt1g67slcms0"]
+
+[ext_resource type="Texture2D" uid="uid://bckgwmeo1txh8" path="res://Assets/Fireball/Fireball-4.png" id="1_p682i"]
+[ext_resource type="Texture2D" uid="uid://bv601775qowly" path="res://Assets/Fireball/Fireball-3.png" id="2_ghxe3"]
+[ext_resource type="Texture2D" uid="uid://btt7cd5q1xndn" path="res://Assets/Fireball/Fireball-2.png" id="3_8w4wf"]
+[ext_resource type="Texture2D" uid="uid://bwj38xvj7l61f" path="res://Assets/Fireball/Fireball-1.png" id="4_sdcfr"]
+[ext_resource type="Texture2D" uid="uid://lue5gsmg0jtc" path="res://Assets/Fireball/Fireball-5.png" id="5_hi56d"]
+[ext_resource type="Texture2D" uid="uid://bbdd1kmmlttpa" path="res://Assets/Fireball/Fireball-6.png" id="6_02y6q"]
+[ext_resource type="Texture2D" uid="uid://rkyf2cqmicsd" path="res://Assets/Fireball/Fireball-7.png" id="7_bvaya"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sw4bo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_p682i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ghxe3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8w4wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sdcfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8w4wf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_p682i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hi56d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_02y6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_bvaya")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvlew"]
+size = Vector2(16, 17.363636)
+
+[node name="FireBall" type="Area2D" unique_id=54158227]
+z_index = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1391488996]
+z_index = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sw4bo")
+frame = 1
+frame_progress = 0.13502246
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1976148160]
+position = Vector2(0, -5.8999996)
+scale = Vector2(2.2, 2.2)
+shape = SubResource("RectangleShape2D_rvlew")

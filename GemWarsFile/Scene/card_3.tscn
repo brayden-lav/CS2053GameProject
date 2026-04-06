@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cky77424omkla" path="res://Assets/Cards/Card3.png" id="1_hihna"]
 [ext_resource type="FontFile" uid="uid://cg6l6rtn0vk1q" path="res://Ithaca-LVB75.ttf" id="2_hihna"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb05o"]
 size = Vector2(102, 128)
 
