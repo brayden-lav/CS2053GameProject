@@ -83,7 +83,6 @@ z_index = 1
 position = Vector2(1139, 335)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1170840347]
-visible = false
 color = Color(0.025363795, 0.025363805, 0.02536378, 1)
 
 [node name="HealthPack" parent="." unique_id=241233361 instance=ExtResource("4_ihfcg")]
