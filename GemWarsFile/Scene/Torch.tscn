@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://dejfj7wafvelh"]
+
+[ext_resource type="Script" path="res://Scripts/torch.gd" id="1_hw1hw"]
+[ext_resource type="Texture2D" uid="uid://dbke3ypvi316o" path="res://Assets/Torch/Torch1.png" id="1_oj23g"]
+[ext_resource type="Texture2D" uid="uid://rfrayn2cnqpn" path="res://Assets/Torch/Torch2.png" id="2_hw1hw"]
+[ext_resource type="Texture2D" uid="uid://cycvy32ja7nxu" path="res://Assets/Torch/Torch3.png" id="3_83vx6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybtsd"]
+size = Vector2(31.63218, 48.301888)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64pgk"]
+atlas = ExtResource("1_oj23g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey06t"]
+atlas = ExtResource("2_hw1hw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1w1dj"]
+atlas = ExtResource("3_83vx6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wl0oq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64pgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey06t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1w1dj")
+}],
+"loop": true,
+"name": &"Torch1",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_h5nho"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lx3np"]
+gradient = SubResource("Gradient_h5nho")
+width = 150
+height = 150
+fill = 1
+fill_from = Vector2(0.5176471, 0.4764706)
+fill_to = Vector2(0.85294116, 0.011764706)
+
+[node name="Torch" type="StaticBody2D" unique_id=257789689]
+script = ExtResource("1_hw1hw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1164947798]
+z_index = 1
+position = Vector2(-0.5, -0.99999905)
+scale = Vector2(1.3593751, 0.828125)
+shape = SubResource("RectangleShape2D_ybtsd")
+
+[node name="Torch" type="AnimatedSprite2D" parent="." unique_id=1799819684]
+sprite_frames = SubResource("SpriteFrames_wl0oq")
+animation = &"Torch1"
+frame = 1
+frame_progress = 0.4645674
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=399540088]
+z_index = 1
+position = Vector2(4, -4)
+scale = Vector2(1.3593751, 0.828125)
+color = Color(1, 0.4862745, 0.1882353, 1)
+shadow_enabled = true
+shadow_color = Color(0.7529412, 0.25882354, 0, 0.9137255)
+texture = SubResource("GradientTexture2D_lx3np")
