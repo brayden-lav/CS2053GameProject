@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://cm0ov08wsw5yw"]
 
-[ext_resource type="Texture2D" uid="uid://bx55biaxqxb3e" path="res://Cards/Card2.png" id="1_72akv"]
+[ext_resource type="Texture2D" uid="uid://cbh0prx7iuv8q" path="res://Assets/Cards/Card2.png" id="1_72akv"]
 [ext_resource type="FontFile" uid="uid://cg6l6rtn0vk1q" path="res://Ithaca-LVB75.ttf" id="2_72akv"]
+
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb05o"]
 size = Vector2(102, 128)

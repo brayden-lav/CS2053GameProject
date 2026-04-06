@@ -172,7 +172,7 @@ func ruby_died():
 func return_to_previous_scene():
 	if GameManager.previous_scene_path == "":
 		print("ERROR: No previous scene set! Returning to Level 1 fallback.") #added check beacause I was getting crashing errors
-		get_tree().change_scene_to_file("res://Level1.tscn")
+		get_tree().change_scene_to_file("res://Scene/level_1.tscn")
 	else:
 		get_tree().change_scene_to_file(GameManager.previous_scene_path) #also moves to level 1 for now, but will work with any level.
 

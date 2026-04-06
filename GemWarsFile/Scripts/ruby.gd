@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var ruby_id: String = ""
 @export var speed := 30
-@export var next_scene: String = "res://fighting_ruby_1.tscn"
+@export var next_scene: String = "res://Scripts/fighting_ruby_1.gd"
  
 var direction := -1
 var target: CharacterBody2D = null
@@ -67,4 +67,4 @@ func _on_transfer_area_body_body_entered(body: Node2D) -> void:
 		GameManager.previous_player_position = body.global_position
 		
 		# Go to battle
-		get_tree().change_scene_to_file("res://Fighting_Ruby_1.tscn")
+		get_tree().change_scene_to_file("res://Scripts/fighting_ruby_1.gd")
