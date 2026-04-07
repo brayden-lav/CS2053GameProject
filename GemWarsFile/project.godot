@@ -15,13 +15,17 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Gem Wars"
-run/main_scene="uid://nuy66oi64afu"
+run/main_scene="uid://cqow47bch5ocs"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameManager="*uid://p8fyp4h04vrb"
+
+[global_group]
+
+player=""
 
 [input]
 

@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://iqd4bn1cw3sf"]
+
+[ext_resource type="Script" uid="uid://c0up0r56qwv42" path="res://Scripts/torch.gd" id="1_8kqpi"]
+[ext_resource type="Texture2D" uid="uid://c0c5wpgydrf4c" path="res://Assets/Torch/Green Torch/Torch3.png" id="2_8kqpi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ybtsd"]
+size = Vector2(31.63218, 48.301888)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_417ie"]
+atlas = ExtResource("2_8kqpi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx7wj"]
+atlas = ExtResource("2_8kqpi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgjni"]
+atlas = ExtResource("2_8kqpi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wl0oq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_417ie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx7wj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgjni")
+}],
+"loop": true,
+"name": &"Torch1",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_h5nho"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lx3np"]
+gradient = SubResource("Gradient_h5nho")
+width = 150
+height = 150
+fill = 1
+fill_from = Vector2(0.5176471, 0.4764706)
+fill_to = Vector2(0.85294116, 0.011764706)
+
+[node name="Torch" type="StaticBody2D" unique_id=257789689]
+script = ExtResource("1_8kqpi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1164947798]
+z_index = 1
+position = Vector2(-0.5, -0.99999905)
+scale = Vector2(1.3593751, 0.828125)
+shape = SubResource("RectangleShape2D_ybtsd")
+
+[node name="Torch" type="AnimatedSprite2D" parent="." unique_id=1799819684]
+sprite_frames = SubResource("SpriteFrames_wl0oq")
+animation = &"Torch1"
+frame_progress = 0.5826996
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=399540088]
+z_index = 1
+position = Vector2(4, -4)
+scale = Vector2(1.3593751, 0.828125)
+color = Color(0.050980393, 0.6313726, 0, 1)
+shadow_enabled = true
+shadow_color = Color(0.7529412, 0.25882354, 0, 0.9137255)
+texture = SubResource("GradientTexture2D_lx3np")
