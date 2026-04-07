@@ -18,6 +18,9 @@ var ruby_shield_active = false
 	#lightning cooldown
 var lightning_cooldown = 0
 
+var ruby_poison_turns = 0
+var garnet_poison_turns = 0
+var poison_cooldown = 0
 
 	#card array
 var cards = []
@@ -83,6 +86,10 @@ func _ready():
 
 func start_player_turn():
 	current_turn = Turn.PLAYER
+	if garnet_poison_turns > 0:
+		print("Garnet takes 1 poison damage")
+		damage_garnet(1)
+		garnet_poison_turns -= 1
 	#shield disappears at start of Ruby's next turn if it was a defensive shield
 	if ruby_shield_active and not ruby_skip_turn:
 		ruby_shield_node.visible = false
@@ -95,10 +102,16 @@ func start_player_turn():
 	
 	if lightning_cooldown > 0:
 		lightning_cooldown -= 1
+	if poison_cooldown > 0:
+		poison_cooldown -= 1
 	show_cards(true)
 
 func start_enemy_turn():
 	current_turn = Turn.ENEMY
+	if ruby_poison_turns > 0:
+		print("Ruby takes 1 poison damage")
+		damage_ruby(1)
+		ruby_poison_turns -= 1
 	show_cards(false)
 
 	if ruby_skip_turn:
@@ -116,6 +129,9 @@ func start_enemy_turn():
 func show_cards(state: bool):
 	for card in cards: #adjust for lightning visibility
 		if card.name == "Card4" and lightning_cooldown > 0:
+			card.visible = false
+			continue
+		if card.name == "Card5" and poison_cooldown > 0:
 			card.visible = false
 			continue
 		card.visible = state
@@ -146,7 +162,7 @@ func player_selected_card(card):
 func enemy_pick_card():
 	var allowed = []
 	for card in cards:
-		if card.name == "Card1" or card.name == "Card3": #makes the fight go a bit smoother to use only the 2 cards
+		if card.name == "Card1" or card.name == "Card3" or card.name == "Card4" or card.name == "Card2": #makes the fight go a bit smoother to use only the 3 cards
 			allowed.append(card)
 	if allowed.is_empty():
 		return
@@ -169,6 +185,8 @@ func resolve_card(card, is_player: bool):
 			await shield(is_player) # await added to ensure Ruby shows animation
 		"Card4":
 			await lightning(is_player, 2) #wait for the animations to be played
+		"Card5":
+			await poison(is_player)
 
 # HEARTS
 
@@ -220,6 +238,17 @@ func play_attack_animation(node):
 
 
 # ABILITIES
+
+func poison(is_player):
+	if is_player:
+		await play_attack_animation(garnet_node) #garnet lifts arm
+		print("Ruby is poisoned!")
+		ruby_poison_turns = 3
+		poison_cooldown = 4
+	else:
+		await play_attack_animation(ruby_node) #ruby lifts arm
+		print("Garnet is poisoned!")
+		garnet_poison_turns = 3
 
 func fireball(is_player, damage):
 	if is_player:
@@ -337,6 +366,7 @@ func play_garnet_shield_break():
 
 # HEALING
 
+
 func heal(is_player):
 	if is_player:
 		garnet_health = min(garnet_health + 1, garnet_max_health)
@@ -362,8 +392,6 @@ func play_heal_effect(node, duration := 1.0):
 	await get_tree().create_timer(duration).timeout
 	
 	node.visible = false
-
-
 # WINNING
 
 func ruby_died():
@@ -376,6 +404,6 @@ func ruby_died():
 
 func return_to_previous_scene():
 	if GameManager.previous_scene_path == "":
-		get_tree().change_scene_to_file("res://Scene/level_1.tscn")
+		get_tree().change_scene_to_file("res://Scene/level_3.tscn")
 	else:
 		get_tree().change_scene_to_file(GameManager.previous_scene_path)

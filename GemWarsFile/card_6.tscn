@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cyb8pvnxhbeu3"]
+
+[ext_resource type="Texture2D" uid="uid://djqyvdt7wyqmk" path="res://Assets/Cards/Card6.png" id="1_ecy6k"]
+[ext_resource type="FontFile" uid="uid://cg6l6rtn0vk1q" path="res://Ithaca-LVB75.ttf" id="2_0ndgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb05o"]
+size = Vector2(102, 128)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ecy6k"]
+line_spacing = 2.0
+font = ExtResource("2_0ndgd")
+font_size = 18
+font_color = Color(1, 0, 1, 1)
+outline_size = 1
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Card6" type="Area2D" unique_id=368194645]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=950506795]
+scale = Vector2(4, 4)
+texture = ExtResource("1_ecy6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912662141]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_tb05o")
+
+[node name="Label" type="Label" parent="." unique_id=1057724275]
+offset_left = -35.0
+offset_top = -55.0
+offset_right = 45.0
+offset_bottom = 51.0
+text = "       Bubble
+ Enemy Takes
+ 1 Damage and
+ has a chance
+ to miss
+End Turn"
+label_settings = SubResource("LabelSettings_ecy6k")
