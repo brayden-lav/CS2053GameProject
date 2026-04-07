@@ -11,7 +11,7 @@ var dialogues = [
 	"A mighty Rose, a graceful Pearl, and the magical Amethyst and I, led the war efforts.",
 	"But calamity struck.",
 	"Pearl and Amethyst were lost. The Crystal Gems had fallen.",
-	"Now I stands alone, with only my will and resolve.",
+	"Now I stand alone, with only my will and resolve.",
 	"I have sworn a quest to save my friends and reunite the Crystal Gems.",
 	"I must journey through the twisting temple...",
 	"... and find the Paradime army general, Jasper...",
