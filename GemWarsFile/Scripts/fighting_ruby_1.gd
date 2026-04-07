@@ -1,4 +1,5 @@
 extends Node2D
+
 # maing it turn by turn
 enum Turn { PLAYER, ENEMY }
 
@@ -43,6 +44,7 @@ var ruby_fireball_start_pos
 # READY
 
 func _ready():
+	GameManager.play_music("res://Music/Steven's Sacrifice.mp3")
 	randomize() # for ruby to randomly pick a card
 	cards = $Cards.get_children() #putting cards into card array
 

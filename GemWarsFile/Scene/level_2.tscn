@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://bbhbhm5jwemjq"]
 
+[ext_resource type="Script" uid="uid://bj3ie8xc5on8u" path="res://Scripts/level_2.gd" id="1_7sdqy"]
 [ext_resource type="Texture2D" uid="uid://byjdcm8j3jtbj" path="res://Assets/Map/Map.png" id="1_jg0dc"]
 [ext_resource type="Script" uid="uid://baunjipqp42gn" path="res://Scripts/back_to_main_lv2.gd" id="1_louwq"]
 [ext_resource type="PackedScene" uid="uid://bld6b7ic7xcr0" path="res://Scene/Blue_Torch.tscn" id="2_rj34r"]
@@ -106,6 +107,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_7sdqy")
 
 [node name="level_2" type="Node2D" unique_id=1877968628]
+script = ExtResource("1_7sdqy")
 
 [node name="Back_to_main" type="Area2D" parent="." unique_id=1241454125]
 z_index = 1
@@ -206,4 +208,4 @@ position = Vector2(1723, 1413)
 
 [node name="Garnet" parent="." unique_id=1088071115 groups=["player"] instance=ExtResource("3_yiryk")]
 z_index = 1
-position = Vector2(1062, 1775)
+position = Vector2(683, 171)

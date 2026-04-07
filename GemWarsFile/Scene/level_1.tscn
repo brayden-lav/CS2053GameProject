@@ -95,7 +95,7 @@ tile_set = SubResource("TileSet_hn12h")
 
 [node name="Garnet" parent="." unique_id=323405628 groups=["player"] instance=ExtResource("2_hbghi")]
 z_index = 1
-position = Vector2(190, 48)
+position = Vector2(1218, 347)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1170840347]
 color = Color(0.025363795, 0.025363805, 0.02536378, 1)
