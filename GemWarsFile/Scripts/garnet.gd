@@ -2,6 +2,15 @@ extends CharacterBody2D
 @export var speed = 60
 var target_velocity = Vector2.ZERO
 var screen_size
+
+func _ready() -> void:
+	if GameManager.current_level == 2:
+		$PointLight2D.color = Color("#6b69ff")
+	if GameManager.current_level == 3:
+		$PointLight2D.color = Color("#a2ff7b")
+	if GameManager.defaultSpotlight == true:
+		$PointLight2D.color = Color("#ffad32")
+		
 func _process(delta):
 	screen_size = get_viewport_rect().size
 	var dir := Vector2.ZERO
