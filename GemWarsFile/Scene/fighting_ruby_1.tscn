@@ -12,13 +12,15 @@
 [ext_resource type="Script" uid="uid://g4bc71xlmi8x" path="res://Scripts/card_2.gd" id="8_esyfb"]
 [ext_resource type="Script" uid="uid://bxuko5jtym6ol" path="res://Scripts/card_3.gd" id="10_6jtbr"]
 [ext_resource type="Script" uid="uid://cqhprme4xoke0" path="res://Scripts/card_4.gd" id="12_wjshq"]
-<<<<<<< Updated upstream
-=======
 [ext_resource type="PackedScene" uid="uid://bwg2o40q6c5wa" path="res://Scene/heart.tscn" id="13_m5pjt"]
 [ext_resource type="PackedScene" uid="uid://coa7qlricf7xb" path="res://Scene/lightning.tscn" id="14_tjfvw"]
 [ext_resource type="PackedScene" uid="uid://bf0t6x26mlf15" path="res://Scene/shield.tscn" id="15_5cool"]
 [ext_resource type="PackedScene" path="res://Scene/fire_ball.tscn" id="16_5cool"]
->>>>>>> Stashed changes
+[ext_resource type="PackedScene" uid="uid://bwg2o40q6c5wa" path="res://Scene/heart.tscn" id="13_m5pjt"]
+[ext_resource type="PackedScene" uid="uid://coa7qlricf7xb" path="res://Scene/lightning.tscn" id="14_tjfvw"]
+[ext_resource type="PackedScene" uid="uid://bf0t6x26mlf15" path="res://Scene/shield.tscn" id="15_5cool"]
+[ext_resource type="PackedScene" uid="uid://kt1g67slcms0" path="res://Scene/fire_ball.tscn" id="16_5cool"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fg7m"]
 texture = ExtResource("1_xqwe6")
@@ -117,3 +119,75 @@ script = ExtResource("10_6jtbr")
 z_index = 1
 position = Vector2(866, 526)
 script = ExtResource("12_wjshq")
+
+[node name="Hearts" type="Node2D" parent="." unique_id=1809274635]
+
+[node name="Heart" parent="Hearts" unique_id=241233361 instance=ExtResource("13_m5pjt")]
+z_index = 1
+position = Vector2(95, 189)
+
+[node name="Heart2" parent="Hearts" unique_id=2115308832 instance=ExtResource("13_m5pjt")]
+z_index = 1
+position = Vector2(127, 190)
+
+[node name="Heart3" parent="Hearts" unique_id=1949531456 instance=ExtResource("13_m5pjt")]
+z_index = 1
+position = Vector2(158, 190)
+
+[node name="Heart4" parent="Hearts" unique_id=92555712 instance=ExtResource("13_m5pjt")]
+z_index = 1
+position = Vector2(190, 191)
+
+[node name="Heart5" parent="Hearts" unique_id=1401549145 instance=ExtResource("13_m5pjt")]
+z_index = 1
+position = Vector2(222, 191)
+
+[node name="Heart6" parent="Hearts" unique_id=323249099 instance=ExtResource("13_m5pjt")]
+z_index = 1
+position = Vector2(255, 191)
+
+[node name="Heart7" parent="Hearts" unique_id=1596156862 instance=ExtResource("13_m5pjt")]
+z_index = 1
+position = Vector2(287, 191)
+
+[node name="Heart8" parent="Hearts" unique_id=1079849402 instance=ExtResource("13_m5pjt")]
+z_index = 1
+position = Vector2(319, 191)
+
+[node name="Heart9" parent="Hearts" unique_id=1761457973 instance=ExtResource("13_m5pjt")]
+z_index = 1
+position = Vector2(351, 191)
+
+[node name="GarnetEffects" type="Node2D" parent="." unique_id=622379793]
+
+[node name="Lightning" parent="GarnetEffects" unique_id=54158227 instance=ExtResource("14_tjfvw")]
+visible = false
+z_index = 1
+position = Vector2(301, 297)
+scale = Vector2(2, 2)
+
+[node name="Shield" parent="GarnetEffects" unique_id=1504474334 instance=ExtResource("15_5cool")]
+visible = false
+z_index = 1
+position = Vector2(236.00002, 280)
+scale = Vector2(1.5, 1.5)
+
+[node name="FireBall" parent="GarnetEffects" unique_id=886937155 instance=ExtResource("16_5cool")]
+visible = false
+
+[node name="RubyEffects" type="Node2D" parent="." unique_id=1358650238]
+
+[node name="Lightning" parent="RubyEffects" unique_id=241032818 instance=ExtResource("14_tjfvw")]
+visible = false
+z_index = 1
+position = Vector2(928, 281)
+scale = Vector2(2, 2)
+
+[node name="Shield" parent="RubyEffects" unique_id=577089163 instance=ExtResource("15_5cool")]
+visible = false
+z_index = 1
+position = Vector2(954, 277)
+scale = Vector2(1.5, 1.5)
+
+[node name="FireBall" parent="RubyEffects" unique_id=283031103 instance=ExtResource("16_5cool")]
+visible = false
