@@ -1,54 +1,30 @@
-[gd_scene format=3 uid="uid://xxh5jq34x8li"]
+[gd_scene load_steps=6 format=3 uid="uid://xxh5jq34x8li"]
 
-[ext_resource type="Texture2D" uid="uid://bq7aala5wam2v" path="res://Garnet/BackFacingWalk/GarnetBack.png" id="1_cseo8"]
-[ext_resource type="Script" uid="uid://dnlyaqomrq2a2" path="res://garnet.gd" id="1_vnmho"]
-[ext_resource type="Texture2D" uid="uid://cv3xlf37m4v7i" path="res://Garnet/BackFacingWalk/GarnetBack 1.png" id="2_vnmho"]
-[ext_resource type="Texture2D" uid="uid://w85v6i0ia5ua" path="res://Garnet/BackFacingWalk/GarnetBack 2.png" id="3_8sval"]
-[ext_resource type="Texture2D" uid="uid://b1xcsopnrawsp" path="res://Garnet/BackFacingWalk/GarnetBack 3.png" id="4_2i816"]
-[ext_resource type="Texture2D" uid="uid://de11bdt7h4u1i" path="res://Garnet/BackFacingWalk/GarnetBack 4.png" id="5_8w574"]
-[ext_resource type="Texture2D" uid="uid://ctsgdgrgo5o7k" path="res://Garnet/BackFacingWalk/GarnetBack 5.png" id="6_rerjx"]
-[ext_resource type="Texture2D" uid="uid://fqa1e2ig7i38" path="res://Garnet/BackFacingWalk/GarnetBack 6.png" id="7_36ucp"]
-[ext_resource type="Texture2D" uid="uid://deft6054bh723" path="res://Garnet/FrontFacingWalk/Garnetfrontwalk.png" id="8_wxokg"]
-[ext_resource type="Texture2D" uid="uid://hl4sgk8vsk8r" path="res://Garnet/FrontFacingWalk/Garnetfrontwalk 1.png" id="9_5slps"]
-[ext_resource type="Texture2D" uid="uid://dqvsnrwst6yrp" path="res://Garnet/FrontFacingWalk/Garnetfrontwalk 2.png" id="10_nqis7"]
-[ext_resource type="Texture2D" uid="uid://c44e3wngvcx5i" path="res://Garnet/FrontFacingWalk/Garnetfrontwalk 3.png" id="11_m5qws"]
-[ext_resource type="Texture2D" uid="uid://bhth1nkfft7jp" path="res://Garnet/FrontFacingWalk/Garnetfrontwalk 4.png" id="12_4h2t0"]
-[ext_resource type="Texture2D" uid="uid://b7lvky3cc5c7y" path="res://Garnet/FrontFacingWalk/Garnetfrontwalk 5.png" id="13_oqw1m"]
-[ext_resource type="Texture2D" uid="uid://cgpkks3k13w8r" path="res://Garnet/Idle/Garnetfront 2.png" id="14_e76d6"]
-[ext_resource type="Texture2D" uid="uid://c3mbge3frqyc0" path="res://Garnet/Idle/Garnetfront.png" id="15_gbvkt"]
-[ext_resource type="Texture2D" uid="uid://dd0j80vvh4hma" path="res://Garnet/Idle/Garnetfront 1.png" id="16_lkmmc"]
-[ext_resource type="Texture2D" uid="uid://b8b2uqqm7e3u5" path="res://Garnet/LeftWalk/GarnetL 1.png" id="17_x3anh"]
-[ext_resource type="Texture2D" uid="uid://cjeh5efovl3da" path="res://Garnet/LeftWalk/GarnetL 2.png" id="18_jhgwb"]
-[ext_resource type="Texture2D" uid="uid://i8gj0kjra8rl" path="res://Garnet/LeftWalk/GarnetL.png" id="19_uhpe3"]
-[ext_resource type="Texture2D" uid="uid://bc3smq8xxb0ya" path="res://Garnet/RightWalk/GarnetR 2.png" id="21_0ix0o"]
-[ext_resource type="Texture2D" uid="uid://ppgjqyysegn" path="res://Garnet/LeftWalk/GarnetL 4.png" id="21_cseo8"]
-[ext_resource type="Texture2D" uid="uid://d3nqo0fia2rig" path="res://Garnet/RightWalk/GarnetR 3.png" id="22_t77we"]
-[ext_resource type="Texture2D" uid="uid://bfcxkkcxn3h5v" path="res://Garnet/RightWalk/GarnetR 1.png" id="23_k57a1"]
-[ext_resource type="Texture2D" uid="uid://cwqot28cjgk22" path="res://Garnet/RightWalk/GarnetR 4.png" id="25_aetnp"]
+[ext_resource type="Script" uid="uid://dnlyaqomrq2a2" path="res://Scripts/garnet.gd" id="1_vnmho"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hrvbo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_cseo8")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_vnmho")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_8sval")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_2i816")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_8w574")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_rerjx")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_36ucp")
+"texture": null
 }],
 "loop": true,
 "name": &"BackWalk",
@@ -56,22 +32,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_wxokg")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_5slps")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_nqis7")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_m5qws")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_4h2t0")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_oqw1m")
+"texture": null
 }],
 "loop": true,
 "name": &"FrontWalk",
@@ -79,16 +55,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("14_e76d6")
+"texture": null
 }, {
 "duration": 1.5,
-"texture": ExtResource("15_gbvkt")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_e76d6")
+"texture": null
 }, {
 "duration": 1.5,
-"texture": ExtResource("16_lkmmc")
+"texture": null
 }],
 "loop": true,
 "name": &"Idle",
@@ -96,25 +72,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("17_x3anh")
+"texture": null
 }, {
 "duration": 1.2,
-"texture": ExtResource("18_jhgwb")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_uhpe3")
+"texture": null
 }, {
 "duration": 1.5,
-"texture": ExtResource("17_x3anh")
+"texture": null
 }, {
 "duration": 1.2,
-"texture": ExtResource("18_jhgwb")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_x3anh")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("21_cseo8")
+"texture": null
 }],
 "loop": true,
 "name": &"LeftWalk",
@@ -122,25 +98,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("23_k57a1")
+"texture": null
 }, {
 "duration": 1.2,
-"texture": ExtResource("21_0ix0o")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("22_t77we")
+"texture": null
 }, {
 "duration": 1.5,
-"texture": ExtResource("23_k57a1")
+"texture": null
 }, {
 "duration": 1.2,
-"texture": ExtResource("21_0ix0o")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("23_k57a1")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("25_aetnp")
+"texture": null
 }],
 "loop": true,
 "name": &"RightWalk",
@@ -158,25 +134,25 @@ gradient = SubResource("Gradient_cseo8")
 width = 256
 height = 256
 fill = 1
-fill_from = Vector2(0.5117647, 0.5117647)
-fill_to = Vector2(0, 0.5470588)
+fill_from = Vector2(0.511765, 0.511765)
+fill_to = Vector2(0, 0.547059)
 
-[node name="Garnet" type="CharacterBody2D" unique_id=1088071115]
+[node name="Garnet" type="CharacterBody2D"]
 script = ExtResource("1_vnmho")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=71274961]
+[node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1092917711]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hrvbo")
 animation = &"RightWalk"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=758312242]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_uypp3")
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=412590183]
+[node name="PointLight2D" type="PointLight2D" parent="."]
 z_index = 1
-color = Color(1, 0.6784314, 0.19607843, 1)
+color = Color(1, 0.678431, 0.196078, 1)
 texture = SubResource("GradientTexture2D_vnmho")
 height = 1024.0

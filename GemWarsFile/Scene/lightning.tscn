@@ -1,36 +1,31 @@
-[gd_scene format=3 uid="uid://coa7qlricf7xb"]
-
-[ext_resource type="Texture2D" uid="uid://uoci38xuuyag" path="res://Lightning/Lightning-1.png" id="1_auma5"]
-[ext_resource type="Texture2D" uid="uid://cnbp2h66c03ib" path="res://Lightning/Lightning-2.png" id="2_m683h"]
-[ext_resource type="Texture2D" uid="uid://du6qa3r8aqfmc" path="res://Lightning/Lightning-3.png" id="3_f8xya"]
-[ext_resource type="Texture2D" uid="uid://ba8ybheyxga4g" path="res://Lightning/Lightning-4.png" id="4_hp0ur"]
+[gd_scene load_steps=2 format=3 uid="uid://coa7qlricf7xb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xuhhs"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_auma5")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_m683h")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_f8xya")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_hp0ur")
+"texture": null
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
 
-[node name="Lightning" type="Area2D" unique_id=54158227]
+[node name="Lightning" type="Area2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1391488996]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7.5)
 scale = Vector2(1, 0.53125)
 sprite_frames = SubResource("SpriteFrames_xuhhs")
-frame_progress = 0.98742294
+frame_progress = 0.987423
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1976148160]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

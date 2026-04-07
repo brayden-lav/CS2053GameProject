@@ -1,24 +1,19 @@
-[gd_scene format=3 uid="uid://c8xyol5lvt4t"]
-
-[ext_resource type="Texture2D" uid="uid://d16fbhh84osc2" path="res://Ruby/Ruby_fighting-1.png" id="1_c33nf"]
-[ext_resource type="Texture2D" uid="uid://bg4l02mvl5sm8" path="res://Ruby/Ruby_fighting-2.png" id="2_812v0"]
-[ext_resource type="Texture2D" uid="uid://bx1lkp2o71b6o" path="res://Ruby/Ruby_fighting-3.png" id="3_lg63f"]
-[ext_resource type="Texture2D" uid="uid://i2u7pnb4uw5y" path="res://Ruby/Ruby_fighting-4.png" id="4_n8g3d"]
+[gd_scene load_steps=3 format=3 uid="uid://c8xyol5lvt4t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_njau4"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_c33nf")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_812v0")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_lg63f")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_n8g3d")
+"texture": null
 }],
 "loop": true,
 "name": &"default",
@@ -28,11 +23,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6r8vk"]
 size = Vector2(25, 31)
 
-[node name="RubyFighting" type="CharacterBody2D" unique_id=130922864]
+[node name="RubyFighting" type="CharacterBody2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=96415980]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_njau4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=48278947]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -0.5)
 shape = SubResource("RectangleShape2D_6r8vk")

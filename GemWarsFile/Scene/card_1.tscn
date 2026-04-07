@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://wtwmpoxojel"]
+[gd_scene load_steps=5 format=3 uid="uid://wtwmpoxojel"]
 
-[ext_resource type="Texture2D" uid="uid://bivnlwwy6wbmy" path="res://Assets/Cards/Card1.png" id="1_hibcc"]
-[ext_resource type="FontFile" uid="uid://cg6l6rtn0vk1q" path="res://Ithaca-LVB75.ttf" id="2_i0y1x"]
-
+[ext_resource type="Texture2D" uid="uid://cheg2047guqn8" path="res://Assets/Cards/Card1.png" id="1_hibcc"]
+[ext_resource type="FontFile" uid="uid://gmh5fs5ui7gl" path="res://Ithaca-LVB75.ttf" id="2_i0y1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb05o"]
 size = Vector2(102, 128)
@@ -15,17 +14,17 @@ font_color = Color(1, 0, 0, 1)
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Card1" type="Area2D" unique_id=368194645]
+[node name="Card1" type="Area2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=950506795]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 texture = ExtResource("1_hibcc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912662141]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_tb05o")
 
-[node name="Label" type="Label" parent="." unique_id=1057724275]
+[node name="Label" type="Label" parent="."]
 offset_left = -35.0
 offset_top = -55.0
 offset_right = 45.0

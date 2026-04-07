@@ -1,8 +1,7 @@
-[gd_scene format=3 uid="uid://d08mevr7kisue"]
+[gd_scene load_steps=5 format=3 uid="uid://d08mevr7kisue"]
 
-[ext_resource type="Texture2D" uid="uid://cky77424omkla" path="res://Assets/Cards/Card3.png" id="1_hihna"]
-[ext_resource type="FontFile" uid="uid://cg6l6rtn0vk1q" path="res://Ithaca-LVB75.ttf" id="2_hihna"]
-
+[ext_resource type="Texture2D" uid="uid://bp5xdqk0l085p" path="res://Assets/Cards/Card3.png" id="1_hihna"]
+[ext_resource type="FontFile" uid="uid://gmh5fs5ui7gl" path="res://Ithaca-LVB75.ttf" id="2_hihna"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tb05o"]
 size = Vector2(102, 128)
@@ -11,21 +10,21 @@ size = Vector2(102, 128)
 line_spacing = 4.0
 font = ExtResource("2_hihna")
 font_size = 18
-font_color = Color(0.2627451, 0, 1, 1)
+font_color = Color(0.262745, 0, 1, 1)
 outline_size = 1
 outline_color = Color(0, 0, 0, 1)
 
-[node name="Card3" type="Area2D" unique_id=609387702]
+[node name="Card3" type="Area2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=704541480]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(4, 4)
 texture = ExtResource("1_hihna")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1840859621]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_tb05o")
 
-[node name="Label" type="Label" parent="." unique_id=1927554779]
+[node name="Label" type="Label" parent="."]
 offset_left = -38.0
 offset_top = -58.0
 offset_right = 47.0

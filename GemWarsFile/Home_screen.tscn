@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://byqtvpfrlrqnh"]
+
+[ext_resource type="Texture2D" uid="uid://c5yxabejhx761" path="res://Assets/Home_screen/background.jpg" id="1_bbx8b"]
+[ext_resource type="Texture2D" uid="uid://r7ynmmgfjxs" path="res://Assets/Home_screen/Author.png" id="2_a16eh"]
+[ext_resource type="Texture2D" uid="uid://t3dss3vf6m2r" path="res://Assets/Home_screen/Title.png" id="2_bbx8b"]
+[ext_resource type="Texture2D" uid="uid://csdaw4nd18hvb" path="res://Assets/Home_screen/Author_hover.png" id="3_6f5jb"]
+[ext_resource type="Texture2D" uid="uid://c6hnlc50fmi1q" path="res://Assets/Home_screen/Quit.png" id="3_a16eh"]
+[ext_resource type="Texture2D" uid="uid://bk46fdpolhdgx" path="res://Assets/Home_screen/Play.png" id="3_bbx8b"]
+[ext_resource type="Texture2D" uid="uid://dbvarvh2dvoe1" path="res://Assets/Home_screen/Quit_hover.png" id="4_6f5jb"]
+[ext_resource type="Texture2D" uid="uid://dno0kkmvh5372" path="res://Assets/Home_screen/Play_hover.png" id="6_ie1q7"]
+
+[node name="Home_sceen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 132.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back_ground" type="TextureRect" parent="."]
+layout_mode = 2
+offset_top = -6.0
+offset_right = 1980.0
+offset_bottom = 1074.0
+texture = ExtResource("1_bbx8b")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1980.0
+offset_bottom = 1080.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Authors" type="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("2_a16eh")
+texture_hover = ExtResource("3_6f5jb")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_bbx8b")
+
+[node name="Play_Button" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("3_bbx8b")
+texture_hover = ExtResource("6_ie1q7")
+
+[node name="Quit_button" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("3_a16eh")
+texture_hover = ExtResource("4_6f5jb")

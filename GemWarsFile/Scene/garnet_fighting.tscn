@@ -1,24 +1,19 @@
-[gd_scene format=3 uid="uid://dpj3gh56jv4ck"]
-
-[ext_resource type="Texture2D" uid="uid://cgthgdndacda8" path="res://Garnet/Garnet Fighting/GarnetFight-1.png" id="1_acpoi"]
-[ext_resource type="Texture2D" uid="uid://clxh0rjkn2wgh" path="res://Garnet/Garnet Fighting/GarnetFight-2.png" id="2_ws2ws"]
-[ext_resource type="Texture2D" uid="uid://ckbt8o5rnuque" path="res://Garnet/Garnet Fighting/GarnetFight-3.png" id="3_5v5w6"]
-[ext_resource type="Texture2D" uid="uid://2gc8eh8mbqfm" path="res://Garnet/Garnet Fighting/GarnetFight-4.png" id="4_avsvh"]
+[gd_scene load_steps=3 format=3 uid="uid://dpj3gh56jv4ck"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ctl3m"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_acpoi")
+"texture": null
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_ws2ws")
+"texture": null
 }, {
 "duration": 2.5,
-"texture": ExtResource("3_5v5w6")
+"texture": null
 }, {
 "duration": 4.0,
-"texture": ExtResource("4_avsvh")
+"texture": null
 }],
 "loop": true,
 "name": &"default",
@@ -28,13 +23,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7gas"]
 size = Vector2(24, 34)
 
-[node name="GarnetFighting" type="CharacterBody2D" unique_id=1214929908]
+[node name="GarnetFighting" type="CharacterBody2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1911639768]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ctl3m")
-frame_progress = 0.09091723
+frame_progress = 0.0909172
 flip_h = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2081740835]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_j7gas")
