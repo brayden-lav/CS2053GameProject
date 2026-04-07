@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cu6nkf0qn3ymv"]
+
+[ext_resource type="Texture2D" uid="uid://dlamyoxsekm0d" path="res://Assets/Pause_screen/Stop.png" id="1_ep4vt"]
+[ext_resource type="Texture2D" uid="uid://b3hcyq6mx4awa" path="res://Assets/Pause_screen/Stop_hover.png" id="2_opuys"]
+[ext_resource type="Texture2D" uid="uid://c5yxabejhx761" path="res://Assets/Home_screen/background.jpg" id="3_0eh3g"]
+[ext_resource type="Texture2D" uid="uid://cfvjogthtwi21" path="res://Assets/Pause_screen/Options.png" id="4_ep4vt"]
+[ext_resource type="Texture2D" uid="uid://bh7vuvq358vhi" path="res://Assets/Pause_screen/Home.png" id="5_n05iu"]
+[ext_resource type="Texture2D" uid="uid://b8smi838x8om4" path="res://Assets/Pause_screen/home_hover.png" id="6_lx66a"]
+[ext_resource type="Texture2D" uid="uid://bucgljuy0r6j8" path="res://Assets/Pause_screen/Back.png" id="7_pv51i"]
+[ext_resource type="Texture2D" uid="uid://djrftgu5egamp" path="res://Assets/Pause_screen/Back_hover.png" id="8_5kh7s"]
+
+[node name="Pause_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="back_ground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 1980.0
+offset_bottom = 1088.0
+texture = ExtResource("3_0eh3g")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1980.0
+offset_bottom = 1080.0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Options" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_ep4vt")
+
+[node name="Home_Button" type="TextureButton" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("5_n05iu")
+texture_hover = ExtResource("6_lx66a")
+ignore_texture_size = true
+
+[node name="Quit_button" type="TextureButton" parent="."]
+visible = false
+layout_mode = 2
+offset_right = 2112.0
+offset_bottom = 1188.0
+texture_normal = ExtResource("1_ep4vt")
+texture_hover = ExtResource("2_opuys")
+
+[node name="Back_button" type="TextureButton" parent="."]
+layout_mode = 2
+offset_right = 2112.0
+offset_bottom = 1188.0
+texture_normal = ExtResource("7_pv51i")
+texture_hover = ExtResource("8_5kh7s")

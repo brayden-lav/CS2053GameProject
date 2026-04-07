@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://b88oekp1nhqlw"]
+
+[ext_resource type="Script" uid="uid://dx1psedkn8f0q" path="res://Scripts/dialog_box.gd" id="1_kxan4"]
+[ext_resource type="Texture2D" uid="uid://canxqdtadtyic" path="res://Assets/UI/Dialog.png" id="2_kxan4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxan4"]
+bg_color = Color(0.1829274, 0.10812507, 0.09218017, 1)
+
+[node name="Dialog Box" type="CanvasLayer" unique_id=1116844014]
+script = ExtResource("1_kxan4")
+
+[node name="Panel" type="Panel" parent="." unique_id=387850279]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -148.0
+offset_right = 3.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_kxan4")
+
+[node name="TextureRect" type="TextureRect" parent="Panel" unique_id=448933297]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 110.0
+offset_bottom = 109.0
+texture = ExtResource("2_kxan4")
+
+[node name="Label" type="Label" parent="Panel" unique_id=283417110]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 36.0
+offset_right = 191.0
+offset_bottom = 59.0
+text = "Garnet"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=2030774327]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 58.0
+offset_right = 1092.0
+offset_bottom = 111.0
+bbcode_enabled = true

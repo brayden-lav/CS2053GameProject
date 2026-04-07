@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dargpaisgw3fe" path="res://Scripts/trigger_lvl_1.gd" id="1_2wwxx"]
 [ext_resource type="PackedScene" uid="uid://kkin7x3vw08v" path="res://Scene/door.tscn" id="1_3amdw"]
+[ext_resource type="Script" uid="uid://cc17ckkqgejh" path="res://Scripts/main.gd" id="1_7y4ci"]
 [ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://Scene/garnet.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://clmi2vx7tqmkc" path="res://Scripts/door.gd" id="2_1xcnr"]
 [ext_resource type="Script" uid="uid://b7ucpcdxdibqm" path="res://Scripts/door_3.1.gd" id="2_75buv"]
@@ -77,6 +78,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_r34rm")
 
 [node name="Main" type="Node2D" unique_id=819097780]
+script = ExtResource("1_7y4ci")
 
 [node name="Door3_2" parent="." unique_id=2062240804 instance=ExtResource("1_3amdw")]
 z_index = 1

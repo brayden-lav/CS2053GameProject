@@ -3,6 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameManager.play_music("res://Music/Tension in the House.mp3")
 	remove_defeated_rubies()
 	restore_player_position()
 
