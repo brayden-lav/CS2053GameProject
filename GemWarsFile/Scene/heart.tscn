@@ -19,7 +19,7 @@ animations = [{
 "texture": null
 }],
 "loop": true,
-"name": &"dead Heart",
+"name": &"dead",
 "speed": 5.0
 }, {
 "frames": [{
@@ -49,7 +49,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_c1hqw")
-animation = &"life"
+animation = &"dead"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

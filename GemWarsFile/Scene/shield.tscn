@@ -1,4 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf0t6x26mlf15"]
+[gd_scene format=3 uid="uid://bf0t6x26mlf15"]
+
+[ext_resource type="Texture2D" uid="uid://3fe3sofllhr5" path="res://Shield/Shield-1.png" id="1_0vxx4"]
+[ext_resource type="Texture2D" uid="uid://b4ol4k47l4tsq" path="res://Shield/Shield-2.png" id="2_4re53"]
+[ext_resource type="Texture2D" uid="uid://b3uc08n2a6w7w" path="res://Shield/Shield-3.png" id="3_tgr6k"]
+[ext_resource type="Texture2D" uid="uid://bioow0gbsqhaw" path="res://Shield/Shield-4.png" id="4_xc41h"]
+[ext_resource type="Texture2D" uid="uid://daqd3i7vleevr" path="res://Assets/Shield/Shield-1.png" id="5_3nwb6"]
+[ext_resource type="Texture2D" uid="uid://cdk3dolwqjkcn" path="res://Assets/Shield/Shield-2.png" id="6_7dlyf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_41k7r"]
 animations = [{
@@ -16,8 +23,19 @@ animations = [{
 "texture": null
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"ShieldBreak",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_3nwb6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7dlyf")
+}],
+"loop": true,
+"name": &"ShieldUp",
+"speed": 4.5
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2xsxu"]
@@ -26,7 +44,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_41k7r")
-frame_progress = 0.364983
+animation = &"ShieldUp"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -20,12 +20,17 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Lightning" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvlew"]
+size = Vector2(16, 12)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -7.5)
-scale = Vector2(1, 0.53125)
+[node name="Lightning" type="Area2D" unique_id=54158227]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1391488996]
+position = Vector2(0, -8)
+scale = Vector2(1, 0.5)
 sprite_frames = SubResource("SpriteFrames_xuhhs")
-frame_progress = 0.987423
+frame_progress = 0.47866014
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1976148160]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_rvlew")
