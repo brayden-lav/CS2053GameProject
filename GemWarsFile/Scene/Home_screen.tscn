@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://jrc7hg2ddfmf"]
+
+[ext_resource type="Script" uid="uid://fjbmuhy57djk" path="res://Scripts/home_screen.gd" id="1_4kqrj"]
+[ext_resource type="Texture2D" uid="uid://cgp8juoe1fesy" path="res://Assets/Home_screen/background.jpg" id="1_bbx8b"]
+[ext_resource type="Texture2D" uid="uid://dqbcaycaqk83p" path="res://Assets/Home_screen/Author.png" id="2_a16eh"]
+[ext_resource type="Texture2D" uid="uid://cls4ono2k0ehk" path="res://Assets/Home_screen/Author_hover.png" id="3_6f5jb"]
+[ext_resource type="Texture2D" uid="uid://dgja7328imes6" path="res://Assets/Home_screen/Quit.png" id="3_a16eh"]
+[ext_resource type="Texture2D" uid="uid://bfryn84uc6esk" path="res://Assets/Home_screen/Play.png" id="3_bbx8b"]
+[ext_resource type="Texture2D" uid="uid://jplosxswyos3" path="res://Assets/Home_screen/title.png" id="4_2u62g"]
+[ext_resource type="Texture2D" uid="uid://rjxqkm8t0sc1" path="res://Assets/Home_screen/Quit_hover.png" id="4_6f5jb"]
+[ext_resource type="Texture2D" uid="uid://d20sq5c8pu2rs" path="res://Assets/Home_screen/Play_hover.png" id="6_ie1q7"]
+
+[node name="Home_screen" type="Control" unique_id=170980383]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_4kqrj")
+
+[node name="background" type="TextureRect" parent="." unique_id=1490433695]
+layout_mode = 0
+offset_top = -6.0
+offset_right = 1152.0
+offset_bottom = 642.0
+texture = ExtResource("1_bbx8b")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="." unique_id=1079775507]
+layout_mode = 0
+offset_left = 396.0
+offset_top = 25.0
+offset_right = 821.0
+offset_bottom = 333.0
+texture = ExtResource("4_2u62g")
+expand_mode = 1
+
+[node name="Play" type="TextureButton" parent="." unique_id=895838735]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 387.0
+offset_right = 781.0
+offset_bottom = 487.0
+texture_normal = ExtResource("3_bbx8b")
+texture_hover = ExtResource("6_ie1q7")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Quit" type="TextureButton" parent="." unique_id=1691518928]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 494.0
+offset_right = 781.0
+offset_bottom = 598.0
+texture_normal = ExtResource("3_a16eh")
+texture_hover = ExtResource("4_6f5jb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Authors" type="TextureButton" parent="." unique_id=845534921]
+layout_mode = 0
+offset_left = 916.0
+offset_top = 544.0
+offset_right = 1117.0
+offset_bottom = 620.0
+texture_normal = ExtResource("2_a16eh")
+texture_hover = ExtResource("3_6f5jb")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Authors" to="." method="_on_author_pressed"]

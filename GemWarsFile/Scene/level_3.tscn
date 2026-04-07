@@ -1,8 +1,12 @@
 [gd_scene format=4 uid="uid://cw1belqwbjd8"]
 
+[ext_resource type="Script" uid="uid://b2ah8a6gmqttq" path="res://Scripts/back_to_main_lvl3.gd" id="1_7x2t2"]
 [ext_resource type="Texture2D" uid="uid://byjdcm8j3jtbj" path="res://Assets/Map/Map.png" id="1_b07fr"]
 [ext_resource type="PackedScene" uid="uid://iqd4bn1cw3sf" path="res://Scene/Green_Torch.tscn" id="1_eqily"]
 [ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://Scene/garnet.tscn" id="3_wjlks"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5qca"]
+size = Vector2(32, 23)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqily"]
 texture = ExtResource("1_b07fr")
@@ -103,6 +107,16 @@ sources/0 = SubResource("TileSetAtlasSource_7x2t2")
 
 [node name="lvl_3" type="Node2D" unique_id=1530018850]
 z_index = 1
+
+[node name="Back_to_main" type="Area2D" parent="." unique_id=337516087]
+z_index = 1
+position = Vector2(7, 1327)
+script = ExtResource("1_7x2t2")
+
+[node name="Trigger" type="CollisionShape2D" parent="Back_to_main" unique_id=1092942642]
+z_index = 1
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_c5qca")
 
 [node name="Torches" type="Node2D" parent="." unique_id=1028956662]
 z_index = 1
@@ -263,6 +277,6 @@ tile_set = SubResource("TileSet_c5qca")
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=341988444]
 color = Color(0.02745098, 0.07450981, 0.015686275, 1)
 
-[node name="Garnet" parent="." unique_id=1088071115 instance=ExtResource("3_wjlks")]
+[node name="Garnet" parent="." unique_id=1088071115 groups=["player"] instance=ExtResource("3_wjlks")]
 z_index = 1
 position = Vector2(1644, 16)

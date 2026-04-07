@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cr0lcmpxn22l2"]
+
+[ext_resource type="Script" uid="uid://eur718igyqwn" path="res://Scripts/authors.gd" id="1_0kwom"]
+[ext_resource type="Texture2D" uid="uid://mjxjumpudy2w" path="res://Assets/Home_screen/Dark V.jpg" id="2_tl7ma"]
+[ext_resource type="Texture2D" uid="uid://c8gaslpn3tjhb" path="res://Assets/Home_screen/Names.png" id="3_0kwom"]
+[ext_resource type="Texture2D" uid="uid://54n3ivobmr5g" path="res://Assets/Home_screen/Back.png" id="4_jv4oe"]
+[ext_resource type="Texture2D" uid="uid://dbdkbay4ogeok" path="res://Assets/Home_screen/Back_hover.png" id="5_62b5x"]
+
+[node name="Authors" type="Control" unique_id=170980383]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0kwom")
+
+[node name="background" type="TextureRect" parent="." unique_id=1490433695]
+layout_mode = 0
+offset_top = -6.0
+offset_right = 1152.0
+offset_bottom = 642.0
+texture = ExtResource("2_tl7ma")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="." unique_id=1079775507]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 175.0
+offset_right = 766.0
+offset_bottom = 531.0
+texture = ExtResource("3_0kwom")
+expand_mode = 1
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=305477774]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 26.0
+offset_right = 174.0
+offset_bottom = 153.0
+texture_normal = ExtResource("4_jv4oe")
+texture_hover = ExtResource("5_62b5x")
+ignore_texture_size = true
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_pressed"]
