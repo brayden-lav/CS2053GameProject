@@ -282,7 +282,7 @@ color = Color(0.02745098, 0.07450981, 0.015686275, 1)
 
 [node name="Garnet" parent="." unique_id=1088071115 groups=["player"] instance=ExtResource("3_wjlks")]
 z_index = 1
-position = Vector2(-19, 1776)
+position = Vector2(1607, 41)
 
 [node name="Ruby" type="Node2D" parent="." unique_id=432189708]
 
