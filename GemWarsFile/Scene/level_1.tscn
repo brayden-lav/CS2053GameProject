@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://Scene/garnet.tscn" id="2_hbghi"]
 [ext_resource type="Script" uid="uid://lx421ic7hdiw" path="res://Scripts/back_to_main_lvl1.gd" id="2_ws63c"]
 [ext_resource type="PackedScene" uid="uid://y7pql4vay6hx" path="res://Scene/ruby.tscn" id="3_hn12h"]
-[ext_resource type="PackedScene" uid="uid://v050p3v5kwn3" path="res://Scene/health_pack.tscn" id="4_ihfcg"]
 [ext_resource type="PackedScene" uid="uid://dejfj7wafvelh" path="res://Scene/Torch.tscn" id="6_ufara"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufara"]
@@ -99,14 +98,6 @@ position = Vector2(1218, 347)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1170840347]
 color = Color(0.025363795, 0.025363805, 0.02536378, 1)
-
-[node name="HealthPack" parent="." unique_id=241233361 instance=ExtResource("4_ihfcg")]
-z_index = 1
-position = Vector2(623, 393)
-
-[node name="HealthPack2" parent="." unique_id=2094760807 instance=ExtResource("4_ihfcg")]
-z_index = 1
-position = Vector2(673, 603)
 
 [node name="Ruby" type="Node2D" parent="." unique_id=1113298464]
 

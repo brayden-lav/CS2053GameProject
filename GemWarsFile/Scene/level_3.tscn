@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://byjdcm8j3jtbj" path="res://Assets/Map/Map.png" id="1_b07fr"]
 [ext_resource type="PackedScene" uid="uid://iqd4bn1cw3sf" path="res://Scene/Green_Torch.tscn" id="1_eqily"]
 [ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://Scene/garnet.tscn" id="3_wjlks"]
+[ext_resource type="PackedScene" uid="uid://y7pql4vay6hx" path="res://Scene/ruby.tscn" id="5_c5qca"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5qca"]
 size = Vector2(32, 23)
@@ -280,3 +281,40 @@ color = Color(0.02745098, 0.07450981, 0.015686275, 1)
 [node name="Garnet" parent="." unique_id=1088071115 groups=["player"] instance=ExtResource("3_wjlks")]
 z_index = 1
 position = Vector2(1644, 16)
+
+[node name="Ruby" type="Node2D" parent="." unique_id=432189708]
+
+[node name="Ruby" parent="Ruby" unique_id=922949844 groups=["rubies"] instance=ExtResource("5_c5qca")]
+z_index = 1
+position = Vector2(1512, 427)
+ruby_id = "ruby_1"
+
+[node name="Ruby2" parent="Ruby" unique_id=1133731296 groups=["rubies"] instance=ExtResource("5_c5qca")]
+z_index = 1
+position = Vector2(1171, 607)
+ruby_id = "ruby_2"
+
+[node name="Ruby3" parent="Ruby" unique_id=767480579 groups=["rubies"] instance=ExtResource("5_c5qca")]
+z_index = 1
+position = Vector2(1497, 927)
+ruby_id = "ruby_3"
+
+[node name="Ruby4" parent="Ruby" unique_id=878874774 groups=["rubies"] instance=ExtResource("5_c5qca")]
+z_index = 1
+position = Vector2(1144, 1290)
+ruby_id = "ruby_3"
+
+[node name="Ruby5" parent="Ruby" unique_id=1510891322 groups=["rubies"] instance=ExtResource("5_c5qca")]
+z_index = 1
+position = Vector2(666, 1359)
+ruby_id = "ruby_3"
+
+[node name="Ruby6" parent="Ruby" unique_id=229546374 groups=["rubies"] instance=ExtResource("5_c5qca")]
+z_index = 1
+position = Vector2(753, 1753)
+ruby_id = "ruby_3"
+
+[node name="Ruby7" parent="Ruby" unique_id=125441036 groups=["rubies"] instance=ExtResource("5_c5qca")]
+z_index = 1
+position = Vector2(-37, 1829)
+ruby_id = "ruby_3"

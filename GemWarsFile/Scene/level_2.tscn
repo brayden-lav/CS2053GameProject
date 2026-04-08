@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bj3ie8xc5on8u" path="res://Scripts/level_2.gd" id="1_7sdqy"]
 [ext_resource type="Texture2D" uid="uid://byjdcm8j3jtbj" path="res://Assets/Map/Map.png" id="1_jg0dc"]
-[ext_resource type="Script" uid="uid://baunjipqp42gn" path="res://Scripts/back_to_main_lv2.gd" id="1_louwq"]
+[ext_resource type="Script" path="res://Scripts/back_to_main_lv2.gd" id="1_louwq"]
 [ext_resource type="PackedScene" uid="uid://bld6b7ic7xcr0" path="res://Scene/Blue_Torch.tscn" id="2_rj34r"]
 [ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://Scene/garnet.tscn" id="3_yiryk"]
+[ext_resource type="PackedScene" uid="uid://y7pql4vay6hx" path="res://Scene/ruby.tscn" id="6_a5oyc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sdqy"]
 size = Vector2(32, 23)
@@ -209,3 +210,40 @@ position = Vector2(1723, 1413)
 [node name="Garnet" parent="." unique_id=1088071115 groups=["player"] instance=ExtResource("3_yiryk")]
 z_index = 1
 position = Vector2(683, 171)
+
+[node name="Ruby" type="Node2D" parent="." unique_id=962426731]
+
+[node name="Ruby" parent="Ruby" unique_id=922949844 groups=["rubies"] instance=ExtResource("6_a5oyc")]
+z_index = 1
+position = Vector2(168, 310)
+ruby_id = "ruby_1"
+
+[node name="Ruby2" parent="Ruby" unique_id=1948665792 groups=["rubies"] instance=ExtResource("6_a5oyc")]
+z_index = 1
+position = Vector2(178, 527)
+ruby_id = "ruby_2"
+
+[node name="Ruby3" parent="Ruby" unique_id=526862566 groups=["rubies"] instance=ExtResource("6_a5oyc")]
+z_index = 1
+position = Vector2(498, 719)
+ruby_id = "ruby_3"
+
+[node name="Ruby4" parent="Ruby" unique_id=425496485 groups=["rubies"] instance=ExtResource("6_a5oyc")]
+z_index = 1
+position = Vector2(268, 976)
+ruby_id = "ruby_3"
+
+[node name="Ruby5" parent="Ruby" unique_id=1281915429 groups=["rubies"] instance=ExtResource("6_a5oyc")]
+z_index = 1
+position = Vector2(680, 1330)
+ruby_id = "ruby_3"
+
+[node name="Ruby6" parent="Ruby" unique_id=342956735 groups=["rubies"] instance=ExtResource("6_a5oyc")]
+z_index = 1
+position = Vector2(1038, 1339)
+ruby_id = "ruby_3"
+
+[node name="Ruby7" parent="Ruby" unique_id=344758048 groups=["rubies"] instance=ExtResource("6_a5oyc")]
+z_index = 1
+position = Vector2(1535, 1632)
+ruby_id = "ruby_3"
