@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://iqd4bn1cw3sf" path="res://Scene/Green_Torch.tscn" id="1_eqily"]
 [ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://Scene/garnet.tscn" id="3_wjlks"]
 [ext_resource type="PackedScene" uid="uid://y7pql4vay6hx" path="res://Scene/ruby.tscn" id="5_c5qca"]
+[ext_resource type="Script" uid="uid://cxbo7vjwu25iy" path="res://Scene/ruby.gd" id="6_oxhny"]
+[ext_resource type="PackedScene" uid="uid://dmq3kkn7p3ai6" path="res://boss_walk.tscn" id="7_s6htl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c5qca"]
 size = Vector2(32, 23)
@@ -280,41 +282,52 @@ color = Color(0.02745098, 0.07450981, 0.015686275, 1)
 
 [node name="Garnet" parent="." unique_id=1088071115 groups=["player"] instance=ExtResource("3_wjlks")]
 z_index = 1
-position = Vector2(1644, 16)
+position = Vector2(-19, 1776)
 
 [node name="Ruby" type="Node2D" parent="." unique_id=432189708]
 
 [node name="Ruby" parent="Ruby" unique_id=922949844 groups=["rubies"] instance=ExtResource("5_c5qca")]
 z_index = 1
 position = Vector2(1512, 427)
-ruby_id = "ruby_1"
+script = ExtResource("6_oxhny")
+next_scene = "res://Scene/fighting_ruby_3.tscn"
 
 [node name="Ruby2" parent="Ruby" unique_id=1133731296 groups=["rubies"] instance=ExtResource("5_c5qca")]
 z_index = 1
 position = Vector2(1171, 607)
+script = ExtResource("6_oxhny")
 ruby_id = "ruby_2"
 
 [node name="Ruby3" parent="Ruby" unique_id=767480579 groups=["rubies"] instance=ExtResource("5_c5qca")]
 z_index = 1
 position = Vector2(1497, 927)
+script = ExtResource("6_oxhny")
 ruby_id = "ruby_3"
 
 [node name="Ruby4" parent="Ruby" unique_id=878874774 groups=["rubies"] instance=ExtResource("5_c5qca")]
 z_index = 1
 position = Vector2(1144, 1290)
+script = ExtResource("6_oxhny")
 ruby_id = "ruby_3"
 
 [node name="Ruby5" parent="Ruby" unique_id=1510891322 groups=["rubies"] instance=ExtResource("5_c5qca")]
 z_index = 1
 position = Vector2(666, 1359)
+script = ExtResource("6_oxhny")
 ruby_id = "ruby_3"
 
 [node name="Ruby6" parent="Ruby" unique_id=229546374 groups=["rubies"] instance=ExtResource("5_c5qca")]
 z_index = 1
 position = Vector2(753, 1753)
+script = ExtResource("6_oxhny")
 ruby_id = "ruby_3"
 
 [node name="Ruby7" parent="Ruby" unique_id=125441036 groups=["rubies"] instance=ExtResource("5_c5qca")]
 z_index = 1
-position = Vector2(-37, 1829)
+position = Vector2(455, 1759)
+script = ExtResource("6_oxhny")
 ruby_id = "ruby_3"
+
+[node name="BossWalk" parent="." unique_id=664321244 groups=["rubies"] instance=ExtResource("7_s6htl")]
+z_index = 1
+position = Vector2(-38, 1855)

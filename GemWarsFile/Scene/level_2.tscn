@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bld6b7ic7xcr0" path="res://Scene/Blue_Torch.tscn" id="2_rj34r"]
 [ext_resource type="PackedScene" uid="uid://xxh5jq34x8li" path="res://Scene/garnet.tscn" id="3_yiryk"]
 [ext_resource type="PackedScene" uid="uid://y7pql4vay6hx" path="res://Scene/ruby.tscn" id="6_a5oyc"]
+[ext_resource type="Script" uid="uid://dtmv8ivur8var" path="res://Scene/ruby2.gd" id="7_43cbn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7sdqy"]
 size = Vector2(32, 23)
@@ -216,34 +217,42 @@ position = Vector2(683, 171)
 [node name="Ruby" parent="Ruby" unique_id=922949844 groups=["rubies"] instance=ExtResource("6_a5oyc")]
 z_index = 1
 position = Vector2(168, 310)
+script = ExtResource("7_43cbn")
 ruby_id = "ruby_1"
+next_scene = "res://Scene/fighting_ruby_2.tscn"
 
 [node name="Ruby2" parent="Ruby" unique_id=1948665792 groups=["rubies"] instance=ExtResource("6_a5oyc")]
 z_index = 1
 position = Vector2(178, 527)
+script = ExtResource("7_43cbn")
 ruby_id = "ruby_2"
 
 [node name="Ruby3" parent="Ruby" unique_id=526862566 groups=["rubies"] instance=ExtResource("6_a5oyc")]
 z_index = 1
 position = Vector2(498, 719)
+script = ExtResource("7_43cbn")
 ruby_id = "ruby_3"
 
 [node name="Ruby4" parent="Ruby" unique_id=425496485 groups=["rubies"] instance=ExtResource("6_a5oyc")]
 z_index = 1
 position = Vector2(268, 976)
+script = ExtResource("7_43cbn")
 ruby_id = "ruby_3"
 
 [node name="Ruby5" parent="Ruby" unique_id=1281915429 groups=["rubies"] instance=ExtResource("6_a5oyc")]
 z_index = 1
 position = Vector2(680, 1330)
+script = ExtResource("7_43cbn")
 ruby_id = "ruby_3"
 
 [node name="Ruby6" parent="Ruby" unique_id=342956735 groups=["rubies"] instance=ExtResource("6_a5oyc")]
 z_index = 1
 position = Vector2(1038, 1339)
+script = ExtResource("7_43cbn")
 ruby_id = "ruby_3"
 
 [node name="Ruby7" parent="Ruby" unique_id=344758048 groups=["rubies"] instance=ExtResource("6_a5oyc")]
 z_index = 1
 position = Vector2(1535, 1632)
+script = ExtResource("7_43cbn")
 ruby_id = "ruby_3"
