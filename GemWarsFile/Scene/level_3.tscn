@@ -290,7 +290,7 @@ position = Vector2(1607, 41)
 z_index = 1
 position = Vector2(1512, 427)
 script = ExtResource("6_oxhny")
-next_scene = "res://Scene/fighting_ruby_3.tscn"
+next_scene = "res://fighting_ruby_3.tscn"
 
 [node name="Ruby2" parent="Ruby" unique_id=1133731296 groups=["rubies"] instance=ExtResource("5_c5qca")]
 z_index = 1

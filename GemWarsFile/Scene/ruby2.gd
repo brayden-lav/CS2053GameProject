@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @export var ruby_id: String = ""
 @export var speed := 30
-@export var next_scene: String = "res://Scene/fighting_ruby_2.tscn"
+@export var next_scene: String = "res://fighting_ruby_2.tscn"
  
 var direction := -1
 var target: CharacterBody2D = null
