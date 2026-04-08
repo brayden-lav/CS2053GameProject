@@ -23,6 +23,10 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://p8fyp4h04vrb"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 player=""
