@@ -1,84 +1,99 @@
 extends Node2D
-# maing it turn by turn
-enum Turn { PLAYER, ENEMY }
 
-# State all variables required
+enum Turn { PLAYER, ENEMY }
 var current_turn = Turn.PLAYER
 
-	#health variables
+# HEALTH
 var garnet_health = 0
 var garnet_max_health = 10
-var boss_health = 10
+var boss_health = 20
 
-	#for boss when she uses a shield
+# TURN / STATUS
 var boss_skip_turn = false
-	#initialize shield active as false
 var garnet_shield_active = false
 var boss_shield_active = false
-	#lightning cooldown
+
+var boss_miss_next = false
+var garnet_miss_next = false
+
 var lightning_cooldown = 0
+var player_poison_cooldown = 0
+var enemy_poison_cooldown = 0
 
 var boss_poison_turns = 0
 var garnet_poison_turns = 0
-var poison_cooldown = 0
 
-	#card array
 var cards = []
 
-# VISUAL REFERENCES
-	#hearts
+# VISUALS
 @onready var hearts = $Hearts.get_children()
+
 @onready var garnet_heal_heart = $GarnetEffects/HealHeart
 @onready var boss_heal_heart = $BossEffects/HealHeart
-	#characters
+
+@onready var garnet_poison_effect = $GarnetEffects/Poison
+@onready var boss_poison_effect = $BossEffects/Poison
+
 @onready var garnet_node = $GarnetFighting
-@onready var boss_node = $RubyFighting
-	#effects
+@onready var boss_node = $Boss
+
+# EFFECTS
 @onready var garnet_lightning = $GarnetEffects/Lightning
 @onready var garnet_shield = $GarnetEffects/Shield
 @onready var garnet_fireball = $GarnetEffects/FireBall
 @onready var boss_fireball = $BossEffects/FireBall
 @onready var boss_shield_node = $BossEffects/Shield
-#effect starting positions defining
+
+@onready var garnet_bubble = $GarnetEffects/Bubble
+@onready var boss_bubble = $BossEffects/Bubble
+
+# POSITIONS
 var lightning_start_pos
 var garnet_shield_pos
 var boss_shield_pos
 var garnet_fireball_start_pos
 var boss_fireball_start_pos
-
+var garnet_bubble_start_pos
+var boss_bubble_start_pos
 
 # READY
-
 func _ready():
-	randomize() # for boss to randomly pick a card
-	cards = $Cards.get_children() #putting cards into card array
 
-	# Ensure heart order is correct
-	hearts.sort_custom(func(a, b): return a.name < b.name) #descending order using name
-	#setting garnet health to whatever it was from the previous scene
+	randomize()
+	cards = $Cards.get_children()
+
+	hearts.sort_custom(func(a, b): return a.name < b.name)
+
 	garnet_health = GameManager.garnet_health
 	garnet_max_health = GameManager.garnet_max_health
-	
+
 	if garnet_health <= 0:
 		garnet_health = garnet_max_health
-	
+
 	update_hearts()
 
-	# Positions
 	lightning_start_pos = garnet_lightning.global_position
 	garnet_shield_pos = garnet_node.global_position + Vector2(50, 0)
 	boss_shield_pos = boss_node.global_position + Vector2(-50, 0)
+
 	garnet_fireball_start_pos = garnet_fireball.global_position
 	boss_fireball_start_pos = boss_fireball.global_position
 
-	# Hide effects
+	garnet_bubble_start_pos = garnet_bubble.global_position
+	boss_bubble_start_pos = boss_bubble.global_position
+
+	# HIDE EFFECTS
 	garnet_lightning.visible = false
 	garnet_shield.visible = false
 	boss_shield_node.visible = false
 	garnet_fireball.visible = false
 	boss_fireball.visible = false
+	garnet_bubble.visible = false
+	boss_bubble.visible = false
 	garnet_heal_heart.visible = false
 	boss_heal_heart.visible = false
+	garnet_poison_effect.visible = false
+	boss_poison_effect.visible = false
 
 	start_player_turn()
 
@@ -86,107 +101,107 @@ func _ready():
 
 func start_player_turn():
 	current_turn = Turn.PLAYER
+
+	# Poison damage
 	if garnet_poison_turns > 0:
-		print("Garnet takes 1 poison damage")
 		damage_garnet(1)
 		garnet_poison_turns -= 1
-	#shield disappears at start of Boss's next turn if it was a defensive shield
+
+	if garnet_poison_turns == 0:
+		stop_poison(garnet_poison_effect)
+
+	# Shields
 	if boss_shield_active and not boss_skip_turn:
 		boss_shield_node.visible = false
 		boss_shield_active = false
-	
-	#break Garnet shield
+
 	if garnet_shield_active:
 		await play_garnet_shield_break()
 	garnet_shield_active = false
-	
+
+	# Reduce cooldowns
 	if lightning_cooldown > 0:
 		lightning_cooldown -= 1
-	if poison_cooldown > 0:
-		poison_cooldown -= 1
+	if player_poison_cooldown > 0:
+		player_poison_cooldown -= 1
+
 	show_cards(true)
 
 func start_enemy_turn():
 	current_turn = Turn.ENEMY
+
+	# Poison damage
 	if boss_poison_turns > 0:
-		print("Boss takes 1 poison damage")
 		damage_boss(1)
 		boss_poison_turns -= 1
+
+	if boss_poison_turns == 0:
+		stop_poison(boss_poison_effect)
+
+	# Reduce cooldowns
+	if enemy_poison_cooldown > 0:
+		enemy_poison_cooldown -= 1
+
 	show_cards(false)
 
 	if boss_skip_turn:
-		print("Boss skips turn!")
-		boss_skip_turn = false # so Boss can act next turn
+		boss_skip_turn = false
 		await get_tree().create_timer(0.5).timeout
 		start_player_turn()
 		return
-	
+
 	await get_tree().create_timer(0.8).timeout
 	enemy_pick_card()
 
-# CARD VISIBILITY
+# CARDS
 
-func show_cards(state: bool):
-	for card in cards: #adjust for lightning visibility
+func show_cards(state):
+	for card in cards:
+		# Player side cooldowns
 		if card.name == "Card4" and lightning_cooldown > 0:
 			card.visible = false
 			continue
-		if card.name == "Card5" and poison_cooldown > 0:
+		if card.name == "Card5" and player_poison_cooldown > 0:
 			card.visible = false
 			continue
 		card.visible = state
 		card.set_process_input(state)
 
-func show_only_selected_card(selected): #makes it so that you can see the effect of the card you just picked happen
+func show_only_selected_card(selected):
 	for card in cards:
 		card.visible = (card == selected)
-
-
-# PLAYER INPUT
 
 func player_selected_card(card):
 	if current_turn != Turn.PLAYER:
 		return
-	
-	if card.name == "Card4" and lightning_cooldown > 0:
-		print("Lightning on cooldown!")
-		return
-	
+
 	show_only_selected_card(card)
 	await resolve_card(card, true)
 	start_enemy_turn()
 
-
-# ENEMY AI
-
 func enemy_pick_card():
 	var allowed = []
 	for card in cards:
-		if card.name == "Card1" or card.name == "Card3" or card.name == "Card4" or card.name == "Card2": #makes the fight go a bit smoother to use only the 3 cards
+		if card.name in ["Card1","Card2","Card3","Card4","Card5","Card6"]:
 			allowed.append(card)
+
 	if allowed.is_empty():
 		return
-	
+
 	var pick = allowed[randi() % allowed.size()]
-	print("Enemy picked:", pick.name)
 	await resolve_card(pick, false)
 	start_player_turn()
 
+#  RESOLVE CARDS
 
-# CARD RESOLUTION
-
-func resolve_card(card, is_player: bool):
+func resolve_card(card, is_player):
 	match card.name:
-		"Card1":
-			await fireball(is_player, 1) #wait for the animations to be played
-		"Card2":
-			heal(is_player)
-		"Card3":
-			await shield(is_player) # await added to ensure Boss shows animation
-		"Card4":
-			await lightning(is_player, 2) #wait for the animations to be played
-		"Card5":
-			await poison(is_player)
+		"Card1": await fireball(is_player, 1)
+		"Card2": heal(is_player)
+		"Card3": await shield(is_player)
+		"Card4": await lightning(is_player, 2)
+		"Card5": await poison(is_player)
+		"Card6": await bubble(is_player)
 
 # HEARTS
 
@@ -202,51 +217,123 @@ func update_hearts():
 
 # DAMAGE
 
+func check_miss(is_player):
+	if is_player and garnet_miss_next:
+		garnet_miss_next = false
+		if randi() % 2 == 0:
+			print("Miss!")
+			return true
+	elif !is_player and boss_miss_next:
+		boss_miss_next = false
+		if randi() % 2 == 0:
+			print("Boss missed!")
+			return true
+	return false
+
 func damage_boss(amount):
 	if boss_shield_active:
-		print("Boss blocked attack!")
-		await play_boss_shield_break() # shield disappears after blocking
+		await play_boss_shield_break()
 		return
-	
+
 	boss_health -= amount
-	print("Boss takes", amount, "damage. HP =", boss_health)
-	if boss_health <= 0:
-		boss_died()
+	print("Boss HP:", boss_health)
 
 func damage_garnet(amount):
 	if garnet_shield_active:
-		print("Garnet blocked attack!")
 		return
-	
-	garnet_health = garnet_health - amount
-	print("Garnet takes", amount, "damage. HP =", garnet_health)
+
+	garnet_health -= amount
 	update_hearts()
 
 
 # ANIMATIONS
-
 func play_attack_animation(node):
 	var sprite = node.get_node("AnimatedSprite2D")
-	sprite.play("default")
-	var frames = sprite.sprite_frames.get_frame_count("default")
-	var speed = sprite.speed_scale
-	var fps = sprite.sprite_frames.get_animation_speed("default")
-	var duration = frames / (fps * speed)
-	await get_tree().create_timer(duration).timeout
-	sprite.stop()
-	sprite.frame = 0
+	if sprite == garnet_node:
+		sprite.play("default")
+		var frames = sprite.sprite_frames.get_frame_count("default")
+		var speed = sprite.speed_scale
+		var fps = sprite.sprite_frames.get_animation_speed("default")
+		var duration = frames / (fps * speed)
+		await get_tree().create_timer(duration).timeout
+		sprite.stop()
+		sprite.frame = 0
+	else:
+		sprite.play("Idle")
+		var frames = sprite.sprite_frames.get_frame_count("Idle")
+		var speed = sprite.speed_scale
+		var fps = sprite.sprite_frames.get_animation_speed("Idle")
+		var duration = frames / (fps * speed)
+		await get_tree().create_timer(duration).timeout
+		sprite.stop()
+		sprite.frame = 0
 
 
 # ABILITIES
 
+func bubble(is_player):
+	if check_miss(is_player):
+		return
+
+	if is_player:
+		await play_attack_animation(garnet_node)
+		await play_bubble(garnet_bubble, garnet_node.global_position, boss_node.global_position, true)
+		damage_boss(1)
+		boss_miss_next = true
+	else:
+		await play_attack_animation(boss_node)
+		await play_bubble(boss_bubble, boss_node.global_position, garnet_node.global_position, false)
+		damage_garnet(1)
+		garnet_miss_next = true
+
+func play_bubble(node, from_pos, to_pos, is_player):
+	node.global_position = from_pos
+	node.visible = true
+
+	var sprite = node.get_node("AnimatedSprite2D")
+	sprite.stop()
+	sprite.frame = 0
+	sprite.play("default")
+
+	var target = to_pos
+
+	# respect shields
+	if is_player and boss_shield_active:
+		target = boss_shield_pos
+	elif !is_player and garnet_shield_active:
+		target = garnet_shield_pos
+
+	var tween = create_tween()
+	tween.tween_property(node, "global_position", target, 0.5)
+	await tween.finished
+
+	await get_tree().create_timer(0.15).timeout
+
+	# break shield if hit
+	if is_player and boss_shield_active:
+		await play_boss_shield_break()
+
+	sprite.stop()
+	sprite.frame = 0
+	node.visible = false
+
 func poison(is_player):
 	if is_player:
-		print("Boss is poisoned!")
+		play_poison(boss_poison_effect, boss_node.global_position)
 		boss_poison_turns = 3
-		poison_cooldown = 4
+		player_poison_cooldown = 3  # Prevent using poison for 3 turns
 	else:
-		print("Garnet is poisoned!")
+		play_poison(garnet_poison_effect, garnet_node.global_position)
 		garnet_poison_turns = 3
+		enemy_poison_cooldown = 3  # Prevent enemy from using poison for 3 turns
+
+func play_poison(node, pos):
+	node.global_position = pos
+	node.visible = true
+	node.get_node("AnimatedSprite2D").play("default")
+
+func stop_poison(node):
+	node.visible = false
 
 func fireball(is_player, damage):
 	if is_player:

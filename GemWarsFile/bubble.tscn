@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://d1qq0q3ltbkf3"]
+
+[ext_resource type="Texture2D" uid="uid://cfnv4e4qevlqg" path="res://Bubble/Untitled_Artwork-1.png" id="1_05jx6"]
+[ext_resource type="Texture2D" uid="uid://knkwlj4vw8i2" path="res://Bubble/Untitled_Artwork-2.png" id="2_4cx2n"]
+[ext_resource type="Texture2D" uid="uid://bw2idlbcxftjj" path="res://Bubble/Untitled_Artwork-3.png" id="3_1pskq"]
+[ext_resource type="Texture2D" uid="uid://cc4umhmftqaof" path="res://Bubble/Untitled_Artwork-4.png" id="4_c2d40"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cd3a8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_05jx6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_4cx2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1pskq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_c2d40")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvlew"]
+size = Vector2(21.181818, 22.272728)
+
+[node name="Bubble" type="Area2D" unique_id=54158227]
+z_index = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1391488996]
+z_index = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cd3a8")
+frame = 2
+frame_progress = 0.008505
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1976148160]
+position = Vector2(5.7, -4.4999995)
+scale = Vector2(2.2, 2.2)
+shape = SubResource("RectangleShape2D_rvlew")

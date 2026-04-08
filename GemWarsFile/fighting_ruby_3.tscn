@@ -20,6 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://bf0t6x26mlf15" path="res://Scene/shield.tscn" id="15_a6b00"]
 [ext_resource type="PackedScene" uid="uid://kt1g67slcms0" path="res://Scene/fire_ball.tscn" id="16_c8l32"]
 [ext_resource type="Script" uid="uid://b10i2k7uvfpry" path="res://card_6.gd" id="16_rh5nl"]
+[ext_resource type="PackedScene" uid="uid://d1qq0q3ltbkf3" path="res://bubble.tscn" id="21_mgl6a"]
+[ext_resource type="PackedScene" uid="uid://d0ox5kc7nvj31" path="res://poison.tscn" id="22_x5thn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fg7m"]
 texture = ExtResource("2_whb1d")
@@ -189,6 +191,10 @@ visible = false
 z_index = 1
 position = Vector2(264, 277)
 
+[node name="Bubble" parent="GarnetEffects" unique_id=325973718 instance=ExtResource("21_mgl6a")]
+
+[node name="Poison" parent="GarnetEffects" unique_id=1054613856 instance=ExtResource("22_x5thn")]
+
 [node name="RubyEffects" type="Node2D" parent="." unique_id=1358650238]
 
 [node name="Lightning" parent="RubyEffects" unique_id=241032818 instance=ExtResource("14_7bbto")]
@@ -210,3 +216,7 @@ visible = false
 visible = false
 z_index = 1
 position = Vector2(921, 275)
+
+[node name="Bubble" parent="RubyEffects" unique_id=1972647259 instance=ExtResource("21_mgl6a")]
+
+[node name="Poison" parent="RubyEffects" unique_id=1710402521 instance=ExtResource("22_x5thn")]

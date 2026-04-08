@@ -14,9 +14,11 @@
 [ext_resource type="Script" uid="uid://cqhprme4xoke0" path="res://Scripts/card_4.gd" id="12_y878v"]
 [ext_resource type="PackedScene" uid="uid://djhtjpdq7ta4o" path="res://card_5.tscn" id="13_0qf5t"]
 [ext_resource type="PackedScene" uid="uid://bwg2o40q6c5wa" path="res://Scene/heart.tscn" id="13_r0cet"]
+[ext_resource type="Script" uid="uid://b5e6vl0hf6loj" path="res://card_5.gd" id="14_f8ah8"]
 [ext_resource type="PackedScene" uid="uid://coa7qlricf7xb" path="res://Scene/lightning.tscn" id="14_vfk3y"]
 [ext_resource type="PackedScene" uid="uid://bf0t6x26mlf15" path="res://Scene/shield.tscn" id="15_gog8m"]
 [ext_resource type="PackedScene" uid="uid://kt1g67slcms0" path="res://Scene/fire_ball.tscn" id="16_abdb3"]
+[ext_resource type="PackedScene" uid="uid://d0ox5kc7nvj31" path="res://poison.tscn" id="18_vaaqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fg7m"]
 texture = ExtResource("2_0qf5t")
@@ -119,6 +121,7 @@ script = ExtResource("12_y878v")
 [node name="Card5" parent="Cards" unique_id=45077646 instance=ExtResource("13_0qf5t")]
 z_index = 1
 position = Vector2(739, 529)
+script = ExtResource("14_f8ah8")
 
 [node name="Hearts" type="Node2D" parent="." unique_id=1809274635]
 
@@ -180,6 +183,9 @@ visible = false
 z_index = 1
 position = Vector2(264, 277)
 
+[node name="Poison" parent="GarnetEffects" unique_id=1804306233 instance=ExtResource("18_vaaqu")]
+visible = false
+
 [node name="RubyEffects" type="Node2D" parent="." unique_id=1358650238]
 
 [node name="Lightning" parent="RubyEffects" unique_id=241032818 instance=ExtResource("14_vfk3y")]
@@ -201,3 +207,5 @@ visible = false
 visible = false
 z_index = 1
 position = Vector2(921, 275)
+
+[node name="Poison" parent="RubyEffects" unique_id=302562791 instance=ExtResource("18_vaaqu")]

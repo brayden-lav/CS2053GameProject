@@ -5,57 +5,74 @@ enum Turn { PLAYER, ENEMY }
 # State all variables required
 var current_turn = Turn.PLAYER
 
-	#health variables
+#health variables
 var garnet_health = 0
 var garnet_max_health = 10
-var ruby_health = 10
+var ruby_health = 20
 
-	#for ruby when she uses a shield
+#for ruby when she uses a shield
 var ruby_skip_turn = false
-	#initialize shield active as false
+#initialize shield active as false
 var garnet_shield_active = false
 var ruby_shield_active = false
-	#lightning cooldown
+
+# NEW: bubble miss chance flags
+var ruby_miss_next = false
+var garnet_miss_next = false
+
+#lightning cooldown
 var lightning_cooldown = 0
 
 var ruby_poison_turns = 0
 var garnet_poison_turns = 0
 var poison_cooldown = 0
 
-	#card array
+#card array
 var cards = []
 
 # VISUAL REFERENCES
-	#hearts
 @onready var hearts = $Hearts.get_children()
 @onready var garnet_heal_heart = $GarnetEffects/HealHeart
 @onready var ruby_heal_heart = $RubyEffects/HealHeart
-	#characters
+
+#characters
 @onready var garnet_node = $GarnetFighting
 @onready var ruby_node = $RubyFighting
-	#effects
+
+#effects
 @onready var garnet_lightning = $GarnetEffects/Lightning
 @onready var garnet_shield = $GarnetEffects/Shield
 @onready var garnet_fireball = $GarnetEffects/FireBall
 @onready var ruby_fireball = $RubyEffects/FireBall
 @onready var ruby_shield_node = $RubyEffects/Shield
-#effect starting positions defining
+@onready var garnet_bubble = $GarnetEffects/Bubble
+@onready var ruby_bubble = $RubyEffects/Bubble
+@onready var garnet_poison_effect = $GarnetEffects/Poison
+@onready var ruby_poison_effect = $RubyEffects/Poison
+
+#positions
 var lightning_start_pos
 var garnet_shield_pos
 var ruby_shield_pos
 var garnet_fireball_start_pos
 var ruby_fireball_start_pos
+var garnet_bubble_start_pos
+var ruby_bubble_start_pos
 
 
 # READY
-
 func _ready():
-	randomize() # for ruby to randomly pick a card
-	cards = $Cards.get_children() #putting cards into card array
+	# ✅ UPDATED: start ruby at level3 frame 0
+	var sprite = ruby_node.get_node("AnimatedSprite2D")
+	sprite.play("level3")
+	sprite.stop()
+	sprite.frame = 0
 
-	# Ensure heart order is correct
-	hearts.sort_custom(func(a, b): return a.name < b.name) #descending order using name
-	#setting garnet health to whatever it was from the previous scene
+	randomize()
+	cards = $Cards.get_children()
+
+	hearts.sort_custom(func(a, b): return a.name < b.name)
+
 	garnet_health = GameManager.garnet_health
 	garnet_max_health = GameManager.garnet_max_health
 	
@@ -64,14 +81,16 @@ func _ready():
 	
 	update_hearts()
 
-	# Positions
 	lightning_start_pos = garnet_lightning.global_position
 	garnet_shield_pos = garnet_node.global_position + Vector2(50, 0)
 	ruby_shield_pos = ruby_node.global_position + Vector2(-50, 0)
 	garnet_fireball_start_pos = garnet_fireball.global_position
 	ruby_fireball_start_pos = ruby_fireball.global_position
-
+	garnet_bubble_start_pos = garnet_bubble.global_position
+	ruby_bubble_start_pos = ruby_bubble.global_position
 	# Hide effects
+	garnet_bubble.visible = false
+	ruby_bubble.visible = false
 	garnet_lightning.visible = false
 	garnet_shield.visible = false
 	ruby_shield_node.visible = false
@@ -79,23 +98,28 @@ func _ready():
 	ruby_fireball.visible = false
 	garnet_heal_heart.visible = false
 	ruby_heal_heart.visible = false
+	garnet_poison_effect.visible = false
+	ruby_poison_effect.visible = false
 
 	start_player_turn()
+
 
 # TURN SYSTEM
 
 func start_player_turn():
 	current_turn = Turn.PLAYER
+	
 	if garnet_poison_turns > 0:
-		print("Garnet takes 1 poison damage")
 		damage_garnet(1)
 		garnet_poison_turns -= 1
-	#shield disappears at start of Ruby's next turn if it was a defensive shield
+	
+	if garnet_poison_turns == 0:
+		stop_poison(garnet_poison_effect)
+	
 	if ruby_shield_active and not ruby_skip_turn:
 		ruby_shield_node.visible = false
 		ruby_shield_active = false
 	
-	#break Garnet shield
 	if garnet_shield_active:
 		await play_garnet_shield_break()
 	garnet_shield_active = false
@@ -104,19 +128,24 @@ func start_player_turn():
 		lightning_cooldown -= 1
 	if poison_cooldown > 0:
 		poison_cooldown -= 1
+	
 	show_cards(true)
+
 
 func start_enemy_turn():
 	current_turn = Turn.ENEMY
+	
 	if ruby_poison_turns > 0:
-		print("Ruby takes 1 poison damage")
 		damage_ruby(1)
 		ruby_poison_turns -= 1
+	
+	if ruby_poison_turns == 0:
+		stop_poison(ruby_poison_effect)
+	
 	show_cards(false)
 
 	if ruby_skip_turn:
-		print("Ruby skips turn!")
-		ruby_skip_turn = false # so Ruby can act next turn
+		ruby_skip_turn = false
 		await get_tree().create_timer(0.5).timeout
 		start_player_turn()
 		return
@@ -127,7 +156,7 @@ func start_enemy_turn():
 # CARD VISIBILITY
 
 func show_cards(state: bool):
-	for card in cards: #adjust for lightning visibility
+	for card in cards:
 		if card.name == "Card4" and lightning_cooldown > 0:
 			card.visible = false
 			continue
@@ -137,7 +166,7 @@ func show_cards(state: bool):
 		card.visible = state
 		card.set_process_input(state)
 
-func show_only_selected_card(selected): #makes it so that you can see the effect of the card you just picked happen
+func show_only_selected_card(selected):
 	for card in cards:
 		card.visible = (card == selected)
 
@@ -149,7 +178,9 @@ func player_selected_card(card):
 		return
 	
 	if card.name == "Card4" and lightning_cooldown > 0:
-		print("Lightning on cooldown!")
+		return
+	
+	if card.name == "Card5" and poison_cooldown > 0:
 		return
 	
 	show_only_selected_card(card)
@@ -162,13 +193,12 @@ func player_selected_card(card):
 func enemy_pick_card():
 	var allowed = []
 	for card in cards:
-		if card.name == "Card1" or card.name == "Card3" or card.name == "Card4" or card.name == "Card2": #makes the fight go a bit smoother to use only the 3 cards
+		if card.name == "Card1" or card.name == "Card3" or card.name == "Card4" or card.name == "Card6":
 			allowed.append(card)
 	if allowed.is_empty():
 		return
 	
 	var pick = allowed[randi() % allowed.size()]
-	print("Enemy picked:", pick.name)
 	await resolve_card(pick, false)
 	start_player_turn()
 
@@ -178,15 +208,18 @@ func enemy_pick_card():
 func resolve_card(card, is_player: bool):
 	match card.name:
 		"Card1":
-			await fireball(is_player, 1) #wait for the animations to be played
+			await fireball(is_player, 1)
 		"Card2":
 			heal(is_player)
 		"Card3":
-			await shield(is_player) # await added to ensure Ruby shows animation
+			await shield(is_player)
 		"Card4":
-			await lightning(is_player, 2) #wait for the animations to be played
+			await lightning(is_player, 2)
 		"Card5":
 			await poison(is_player)
+		"Card6":
+			await bubble(is_player)
+
 
 # HEARTS
 
@@ -201,6 +234,19 @@ func update_hearts():
 
 
 # DAMAGE
+
+func check_miss(is_player):
+	if is_player and garnet_miss_next:
+		garnet_miss_next = false
+		if randi() % 2 == 0:
+			print("Garnet's attack missed!")
+			return true
+	elif !is_player and ruby_miss_next:
+		ruby_miss_next = false
+		if randi() % 2 == 0:
+			print("Ruby's attack missed!")
+			return true
+	return false
 
 func damage_ruby(amount):
 	if ruby_shield_active:
@@ -227,28 +273,98 @@ func damage_garnet(amount):
 
 func play_attack_animation(node):
 	var sprite = node.get_node("AnimatedSprite2D")
-	sprite.play("default")
-	var frames = sprite.sprite_frames.get_frame_count("default")
-	var speed = sprite.speed_scale
-	var fps = sprite.sprite_frames.get_animation_speed("default")
-	var duration = frames / (fps * speed)
-	await get_tree().create_timer(duration).timeout
-	sprite.stop()
-	sprite.frame = 0
+	if sprite == garnet_node:
+		sprite.play("default")
+		var frames = sprite.sprite_frames.get_frame_count("default")
+		var speed = sprite.speed_scale
+		var fps = sprite.sprite_frames.get_animation_speed("default")
+		var duration = frames / (fps * speed)
+		await get_tree().create_timer(duration).timeout
+		sprite.stop()
+		sprite.frame = 0
+	else:
+		sprite.play("level3")
+		var frames = sprite.sprite_frames.get_frame_count("level3")
+		var speed = sprite.speed_scale
+		var fps = sprite.sprite_frames.get_animation_speed("level3")
+		var duration = frames / (fps * speed)
+		await get_tree().create_timer(duration).timeout
+		sprite.stop()
+		sprite.frame = 0
 
 
 # ABILITIES
+func bubble(is_player):
+	if check_miss(is_player):
+		return
+	
+	if is_player:
+		await play_attack_animation(garnet_node)
+		await play_bubble(garnet_bubble, garnet_node.global_position, ruby_node.global_position, true)
+		damage_ruby(1)
+		ruby_miss_next = true
+		print("Ruby will miss next attack (50%)")
+	else:
+		await play_attack_animation(ruby_node)
+		await play_bubble(ruby_bubble, ruby_node.global_position, garnet_node.global_position, false)
+		damage_garnet(1)
+		garnet_miss_next = true
+		print("Garnet will miss next attack (50%)")
 
+func play_bubble(node, from_pos, to_pos, is_player):
+	node.global_position = from_pos
+	node.visible = true
+	
+	var sprite = node.get_node("AnimatedSprite2D")
+	sprite.stop()
+	sprite.frame = 0
+	sprite.play("default")
+	
+	var target = to_pos
+	
+	# stop at shield if active
+	if is_player and ruby_shield_active:
+		target = ruby_shield_pos
+	elif !is_player and garnet_shield_active:
+		target = garnet_shield_pos
+	
+	var tween = create_tween()
+	tween.tween_property(node, "global_position", target, 0.5)
+	await tween.finished
+	
+	await get_tree().create_timer(0.15).timeout
+	
+	# break shield if hit
+	if is_player and ruby_shield_active:
+		await play_ruby_shield_break()
+	
+	sprite.stop()
+	sprite.frame = 0
+	node.visible = false
+	
+	
 func poison(is_player):
 	if is_player:
-		await play_attack_animation(garnet_node) #garnet lifts arm
-		print("Ruby is poisoned!")
+		play_poison(ruby_poison_effect, ruby_node.global_position)
 		ruby_poison_turns = 3
 		poison_cooldown = 4
 	else:
-		await play_attack_animation(ruby_node) #ruby lifts arm
-		print("Garnet is poisoned!")
+		play_poison(garnet_poison_effect, garnet_node.global_position)
 		garnet_poison_turns = 3
+
+func play_poison(node, target_pos):
+	node.global_position = target_pos
+	node.visible = true
+	
+	var sprite = node.get_node("AnimatedSprite2D")
+	sprite.stop()
+	sprite.frame = 0
+	sprite.play("default")
+
+func stop_poison(node):
+	var sprite = node.get_node("AnimatedSprite2D")
+	sprite.stop()
+	node.visible = false
 
 func fireball(is_player, damage):
 	if is_player:
@@ -366,7 +482,6 @@ func play_garnet_shield_break():
 
 # HEALING
 
-
 func heal(is_player):
 	if is_player:
 		garnet_health = min(garnet_health + 1, garnet_max_health)
@@ -392,6 +507,8 @@ func play_heal_effect(node, duration := 1.0):
 	await get_tree().create_timer(duration).timeout
 	
 	node.visible = false
+
+
 # WINNING
 
 func ruby_died():
@@ -404,6 +521,6 @@ func ruby_died():
 
 func return_to_previous_scene():
 	if GameManager.previous_scene_path == "":
-		get_tree().change_scene_to_file("res://Scene/level_3.tscn")
+		get_tree().change_scene_to_file("res://Scene/level_2.tscn")
 	else:
 		get_tree().change_scene_to_file(GameManager.previous_scene_path)

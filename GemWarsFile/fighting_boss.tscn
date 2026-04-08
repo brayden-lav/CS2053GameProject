@@ -12,12 +12,16 @@
 [ext_resource type="PackedScene" uid="uid://cdgfdg3vf7guh" path="res://Scene/card_4.tscn" id="11_p485m"]
 [ext_resource type="Script" uid="uid://cqhprme4xoke0" path="res://Scripts/card_4.gd" id="12_tvila"]
 [ext_resource type="PackedScene" uid="uid://djhtjpdq7ta4o" path="res://card_5.tscn" id="13_m56ay"]
+[ext_resource type="Script" uid="uid://b5e6vl0hf6loj" path="res://card_5.gd" id="13_qr56c"]
 [ext_resource type="PackedScene" uid="uid://cyb8pvnxhbeu3" path="res://card_6.tscn" id="14_siwxt"]
 [ext_resource type="PackedScene" uid="uid://bwg2o40q6c5wa" path="res://Scene/heart.tscn" id="15_2l50u"]
+[ext_resource type="Script" uid="uid://b10i2k7uvfpry" path="res://card_6.gd" id="15_vnjmv"]
 [ext_resource type="PackedScene" uid="uid://coa7qlricf7xb" path="res://Scene/lightning.tscn" id="16_026eo"]
 [ext_resource type="PackedScene" uid="uid://bf0t6x26mlf15" path="res://Scene/shield.tscn" id="17_yd348"]
+[ext_resource type="PackedScene" uid="uid://d1qq0q3ltbkf3" path="res://bubble.tscn" id="18_0ey36"]
 [ext_resource type="PackedScene" uid="uid://bho3t0nveh2j4" path="res://Scene/boss.tscn" id="18_7kedy"]
 [ext_resource type="PackedScene" uid="uid://kt1g67slcms0" path="res://Scene/fire_ball.tscn" id="18_7xg7b"]
+[ext_resource type="PackedScene" uid="uid://d0ox5kc7nvj31" path="res://poison.tscn" id="19_drjuj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fg7m"]
 texture = ExtResource("2_7kedy")
@@ -115,10 +119,12 @@ script = ExtResource("12_tvila")
 [node name="Card5" parent="Cards" unique_id=667772405 instance=ExtResource("13_m56ay")]
 z_index = 1
 position = Vector2(737, 528)
+script = ExtResource("13_qr56c")
 
 [node name="Card6" parent="Cards" unique_id=1277845071 instance=ExtResource("14_siwxt")]
 z_index = 1
 position = Vector2(866, 529)
+script = ExtResource("15_vnjmv")
 
 [node name="Hearts" type="Node2D" parent="." unique_id=1809274635]
 
@@ -180,6 +186,10 @@ visible = false
 z_index = 1
 position = Vector2(264, 277)
 
+[node name="Bubble" parent="GarnetEffects" unique_id=75855260 instance=ExtResource("18_0ey36")]
+
+[node name="Poison" parent="GarnetEffects" unique_id=1873880650 instance=ExtResource("19_drjuj")]
+
 [node name="BossEffects" type="Node2D" parent="." unique_id=1358650238]
 
 [node name="Lightning" parent="BossEffects" unique_id=241032818 instance=ExtResource("16_026eo")]
@@ -201,6 +211,10 @@ visible = false
 visible = false
 z_index = 1
 position = Vector2(921, 275)
+
+[node name="Bubble" parent="BossEffects" unique_id=1444830745 instance=ExtResource("18_0ey36")]
+
+[node name="Poison" parent="BossEffects" unique_id=1942117698 instance=ExtResource("19_drjuj")]
 
 [node name="Boss" parent="." unique_id=664321244 instance=ExtResource("18_7kedy")]
 z_index = 1

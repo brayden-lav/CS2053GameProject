@@ -4,6 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://bg4l02mvl5sm8" path="res://Ruby/Ruby_fighting-2.png" id="2_812v0"]
 [ext_resource type="Texture2D" uid="uid://bx1lkp2o71b6o" path="res://Ruby/Ruby_fighting-3.png" id="3_lg63f"]
 [ext_resource type="Texture2D" uid="uid://i2u7pnb4uw5y" path="res://Ruby/Ruby_fighting-4.png" id="4_n8g3d"]
+[ext_resource type="Texture2D" uid="uid://b542cpaq8hf00" path="res://Assets/Ruby/Ruby_fighting2-1.png" id="5_t3dbh"]
+[ext_resource type="Texture2D" uid="uid://plxb8v0301td" path="res://Assets/Ruby/Ruby_fighting2-2.png" id="6_agxfg"]
+[ext_resource type="Texture2D" uid="uid://0nvbimp8cc1j" path="res://Assets/Ruby/Ruby_fighting2-3.png" id="7_0irqt"]
+[ext_resource type="Texture2D" uid="uid://bt7qwvjanhy4d" path="res://Assets/Ruby/Ruby_fighting2-4.png" id="8_33xn1"]
+[ext_resource type="Texture2D" uid="uid://c74kqs2qowqos" path="res://Assets/Ruby/Ruby_fighting3-1.png" id="9_aqf04"]
+[ext_resource type="Texture2D" uid="uid://bgei3llfd8mqp" path="res://Assets/Ruby/Ruby_fighting3-2.png" id="10_njtn6"]
+[ext_resource type="Texture2D" uid="uid://coigbeavd1jkj" path="res://Assets/Ruby/Ruby_fighting3-3.png" id="11_veoe7"]
+[ext_resource type="Texture2D" uid="uid://q67td014nof6" path="res://Assets/Ruby/Ruby_fighting3-4.png" id="12_w4r7v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_njau4"]
 animations = [{
@@ -22,6 +30,40 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_t3dbh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_agxfg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0irqt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_33xn1")
+}],
+"loop": true,
+"name": &"level2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_aqf04")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_njtn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_veoe7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_w4r7v")
+}],
+"loop": true,
+"name": &"level3",
 "speed": 5.0
 }]
 

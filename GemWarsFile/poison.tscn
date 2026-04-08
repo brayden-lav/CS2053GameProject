@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://d0ox5kc7nvj31"]
+
+[ext_resource type="Texture2D" uid="uid://c5yrbafp2u2kt" path="res://Poison/Poison-1.png" id="1_pjqmx"]
+[ext_resource type="Texture2D" uid="uid://dn50pavw0xj65" path="res://Poison/Poison-2.png" id="2_s7g7s"]
+[ext_resource type="Texture2D" uid="uid://dt4kw4l25swo4" path="res://Poison/Poison-3.png" id="3_txvim"]
+[ext_resource type="Texture2D" uid="uid://btpbghwwea78l" path="res://Poison/Poison-4.png" id="4_k83p6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywus0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pjqmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_s7g7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_txvim")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k83p6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvlew"]
+size = Vector2(22.727272, 27.272728)
+
+[node name="Poison" type="Area2D" unique_id=54158227]
+z_index = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1391488996]
+z_index = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ywus0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1976148160]
+position = Vector2(2.9999993, -1.999999)
+scale = Vector2(2.2, 2.2)
+shape = SubResource("RectangleShape2D_rvlew")
